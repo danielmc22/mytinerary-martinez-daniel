@@ -1,6 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 import NavBar from "./components/navBar";
+import Carousel from "./components/carousel";
+import LogoCompleto from "./img/logo_completo.png";
+
+/* import Header from "./components/header"; */
 
 
 function App() {
@@ -10,24 +14,18 @@ function App() {
     <div className="App">
 
     <NavBar/>
-    <h1>Hola probando</h1>
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Aprendiendo React Clase 1
-        </a>
-        <h2 style="color: green">iniciando React</h2>
+    <div className="headerIndex">
+      <img src={LogoCompleto} className="logoCompleto"/>
+      <h2> Carousel</h2>
+    </div>
+    
+    <Carousel/>
 
-      </header>
+    {/* <Header/> */}
+    
+
+      
     </div>
   );
 }

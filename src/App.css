@@ -6,6 +6,11 @@
   height: 40vmin;
   pointer-events: none;
 }
+.logoPeque{
+  width: 3.3rem;
+  margin: 0.6rem;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -14,7 +19,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #a8bee7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,3 +41,4 @@
     transform: rotate(360deg);
   }
 }
+

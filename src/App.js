@@ -3,8 +3,10 @@ import './App.css';
 import NavBar from "./components/navBar";
 import Carousel from "./components/carousel";
 import LogoCompleto from "./img/logo_completo.png";
+import Header from './components/header';
+import Footer from './components/footer';
 
-/* import Header from "./components/header"; */
+
 
 
 function App() {
@@ -14,15 +16,11 @@ function App() {
     <div className="App">
 
     <NavBar/>
-
-    <div className="headerIndex">
-      <img src={LogoCompleto} className="logoCompleto"/>
-      <h2> Carousel</h2>
-    </div>
-    
+    <Header/>
     <Carousel/>
+    <Footer/>
 
-    {/* <Header/> */}
+
     
 
       

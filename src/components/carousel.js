@@ -16,7 +16,8 @@ import { Autoplay, Pagination, Navigation, Grid } from "swiper";
 
 export default function Carousel() {
   return (
-    <div>
+
+    <div className="containerCarousel">
       <h2>Popular MYTINERARIES!</h2> 
 
       <Swiper 

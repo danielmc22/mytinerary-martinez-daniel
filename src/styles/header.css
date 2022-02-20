@@ -1,0 +1,89 @@
+.video-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:flex-start;
+    height: 90vh;
+    width: 100%;
+    object-fit: contain;
+    box-shadow: inset 0 0 0 1000px rgba (0, 0, 0, 5);
+    background-color: rgba(25, 28, 36, 0.473);
+}
+
+.video{
+    object-fit: cover;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    z-index: -1;
+    
+}
+.containerHeader{
+    display: flex;
+    width: 80%;
+    height: 85%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.containerHeader > img{
+    justify-content: flex-start;
+}
+.imagenHeader{
+    width: 300px;
+    height: 240px;
+    margin: 2rem;
+    margin-bottom: 0;
+}
+.txtMytinerary{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.txtMy{
+    color: rgba(1, 16, 58, 0.89);
+    font-family: 'Lobster', cursive;
+    font-size: 70px;
+    text-shadow: 2px 3px 2px rgb(223, 210, 210);
+    
+}
+.txtTinerary{
+    color: rgb(255, 255, 255);
+    font-family: 'Lobster', cursive;
+    font-size: 70px;
+    text-shadow: 2px 5px 2px rgb(0, 0, 0);
+}
+.containerHeader > p{
+    color: rgb(172, 166, 226);
+    font-family: 'Lobster', cursive;
+    font-size: 35px;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+/*   DROP   -- DROP      DROP   -- DROP   */
+
+@media screen and (max-width: 450px) {
+    .imagenHeader{
+        width: 180px;
+        height: 150px;
+        margin: 1rem;
+        margin-bottom: 0;
+    }
+    .txtMy{
+        color: rgba(1, 16, 58, 0.89);
+        font-size: 45px;
+        
+    }
+    .txtTinerary{
+        color: rgb(255, 255, 255);
+        font-size: 45px;
+        text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    }
+    .containerHeader > p{
+        color: rgb(172, 166, 226);
+        font-size: 24px;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    }
+
+}
+

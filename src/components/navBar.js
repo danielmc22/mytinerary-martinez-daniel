@@ -11,7 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import "../styles/navBar.css";
 import LogoPeque from "../img/solo_logo.png";
+
 
 const pages = ['Home', 'Cities'];
 const settings = ['Sing In', 'Sing Up'];
@@ -101,8 +103,8 @@ const NavBar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block', fontWeight:800, fontSize:"18px" }}
+                onClick={handleCloseNavMenu}                    
+                sx={{ my: 2, marginLeft: "4vw", color: 'white', display: 'block', fontWeight:800, fontSize:"18px" }}
               >
                 {page}
               </Button>

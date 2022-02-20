@@ -12,21 +12,7 @@ code {
     monospace;
 }
 
-.NavBar{
-  background-color: rgb(1, 16, 58) !important;
-}
 
-.headerIndex{
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  min-height: 90vh;
-  background-color: rgb(35, 36, 44);
-  /* background-image: url(.img/fondoHeader.jpg); */
-  background-size: cover;
-}
-.logoCompleto{
-  width: 12vw;
-  height: 22vh;
-}
+
+
 

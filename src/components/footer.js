@@ -2,6 +2,7 @@ import React from 'react'
 import "../styles/footer.css"
 import ImagenHeder from "../img/imagenHeader.png"
 import FondoFooter from "../img/fondoHeader.jpg"
+import { Link as LinkRouter } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
@@ -33,8 +34,8 @@ const Footer = () => {
 
         <div className='explore'>
           <h3>Explore:</h3>
-          <a href="#">HOME</a>
-          <a href="#">CITIES</a>
+          <a href="#"> <LinkRouter to="/inicio" className="link">HOME</LinkRouter></a>
+          <a href="#">  <LinkRouter to="/cities" className="link">CITIES</LinkRouter> </a> 
         </div>
 
       </div>

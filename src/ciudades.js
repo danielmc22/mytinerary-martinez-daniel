@@ -55,9 +55,9 @@ const cities = [
         "descripcion": "ciudad de la eterna primavera",
     },
     {
-        "name": "Sydney",
-        "country":"Australia",
-        "image": "https://dondealojarse.net/wp-content/uploads/2019/08/dondedormirsydney.jpg",
+        "name": "Melbourne",
+        "country":"Australia", 
+        "image": "https://imagenes.canalrcn.com/lomaslike/melbourne.jpg",
         "descripcion": "ciudad de la eterna primavera",
     },
     {

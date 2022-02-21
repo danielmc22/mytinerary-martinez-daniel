@@ -1,18 +1,25 @@
 .containerCarousel{
   display: flex;
   flex-direction: column;
-  border: red solid 3px;
+  border: rgb(94, 94, 94) solid 3px;
+  background-color: rgba(3, 3, 29, 0.918);
 
 }
+.titleCarousel{
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: large;
+  padding: 2rem 0rem 1rem 0rem;
+}
 .containerCarousel > h2{
-  display: inline;
-  align-self: flex-end;
   font-family: 'M PLUS 1', sans-serif;
   padding: 2rem;
   width: 100%;
   height: 12vh;
+  color: white;
 }
-
 .swiper {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +28,6 @@
   height:80vh;
   margin-left: auto;
   margin-right: auto;
-  border: red solid 3px;
 }
 .swiper-slide {
   display: flex;
@@ -29,7 +35,7 @@
   font-size: 18px;
   background: #fff !important;
   color: #fff;
-  height: calc((100% - 30px) / 2) !important;
+  height: calc((100% - 33px) / 2) !important;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -44,21 +50,39 @@
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  border: rgb(167, 209, 14) solid 3px;
-  
 }
 .swiper-slide img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  position: absolute;
+  z-index: 101;
 }
-.swiper-slide #eventoname{
+.swiper-slide img:hover{
+  width: 110%;
+  height: 120%;
+  object-fit: cover;
+  border-radius: 10px;
+  position: absolute;
+  
+  z-index: 99;
+  
+}
+.nombreImagen{
+  width: 150%;
+  font-family: 'Lobster', cursive;
+  align-self: flex-start;
+  text-shadow: 2px 3px 2px rgb(22, 18, 18);
+  color: rgba(255, 255, 255, 0.856);
+  font-size: 30px;
+  background-color: rgba(45, 78, 185, 0.438);
+  z-index: 100;
+}
+.swiper-slide #eventName{
   margin: .5rem;
   display: flex;
   align-items: center;
-  align-self: flex-end;
-  position: absolute;
   background-color: rgba(255, 255, 255, 0.699);
   border-radius: 14px;
 }
@@ -72,13 +96,5 @@
   font-family: Josefin Sans;
 }
 
-.swiper-button-next{
-  color: yellow !important;
-  background-color: rgb(0, 0, 0) !important;
-  border-radius: 10px;
-}
-/* .imgCarousel{
-  width: 100px;
-  height: 80px;
 
-} */
+

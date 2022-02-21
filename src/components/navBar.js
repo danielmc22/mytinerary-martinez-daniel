@@ -13,9 +13,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import "../styles/navBar.css";
 import LogoPeque from "../img/solo_logo.png";
+import { Link as LinkRouter } from 'react-router-dom';
 
 
-const pages = ['Home', 'Cities'];
+const pages = [ <LinkRouter to="inicio" className="link">Home</LinkRouter>,  <LinkRouter to="cities" className="link">Cities</LinkRouter>]; 
 const settings = ['Sing In', 'Sing Up'];
 
 const NavBar = () => {

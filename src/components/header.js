@@ -3,6 +3,7 @@ import "../styles/header.css"
 import coverVideo from "../img/coverVideo.mp4"
 import logoEnHeader from "../img/solo_logo.png";
 import ImagenHeder from "../img/imagenHeader.png"
+import { Link as LinkRouter } from 'react-router-dom';
 
 
 const Header = () => {
@@ -22,8 +23,12 @@ const Header = () => {
         <p>Find your perfect trip, designed by insiders who know and love their cities!</p>
       
       </div>
-      
-      
+
+      <div className='containerBoton'>
+        <p>Come On! Click Here & lets start</p> 
+        <LinkRouter to="/cities" className="link">LET'S TO EXPLORE</LinkRouter>
+      </div>
+
     </div>
   )
 }

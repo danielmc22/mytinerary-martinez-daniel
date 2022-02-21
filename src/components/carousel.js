@@ -18,7 +18,9 @@ export default function Carousel() {
   return (
 
     <div className="containerCarousel">
-      <h2>Popular MYTINERARIES!</h2> 
+      <div className="titleCarousel">
+        <h2>Popular MyTineraries!</h2> 
+      </div>
 
       <Swiper 
         slidesPerView={2}
@@ -47,7 +49,11 @@ export default function Carousel() {
 
         <SwiperSlide> 
           {/* <img src={process.env.PUBLIC_URL + `./imgCiudades${ciudad.image}`}/> */}
-          <img className="imgCarousel" src={ciudad.image}/>
+          
+            <img className="imgCarousel" src={ciudad.image}/>
+            <p className="nombreImagen">{ciudad.name}</p>
+          
+
         </SwiperSlide>
         
         )}

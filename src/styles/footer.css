@@ -1,12 +1,38 @@
+.globalFooter{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    object-fit:scale-down;
+    background-color: rgba(0, 0, 0, 0.589);
+    border: rgb(94, 94, 94) solid 3px;
+    height: 37vh;
+    width: 100%;
+}
+.globalFooter > img{
+    object-fit:cover;
+    height: 37vh;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
 .footerContainer{
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
+    justify-content:space-around;
     align-items:center;
-    height: 25vh;
-    width: 100%;
-    background-color: rgb(21, 33, 66);
+    padding-top: 2rem;
+    height: auto;
+    
 }
+.globalFooter > h2{
+    color: white;
+    font-size: 14px;
+    align-self: center;
+    font-weight: 400;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    margin-bottom: 3rem;
+}
+
 .primerElemento{
     display: flex;
     flex-direction: column;
@@ -29,7 +55,7 @@
     color: white;
 }
 .socialMedia > h3{ 
-    margin: 0px 0px 20px 15px;
+    margin: 0px 0px 25px 15px;
     color: rgb(157, 128, 184);
 }
 
@@ -42,6 +68,8 @@
 .iconsMedia{
     display: flex;
     justify-content: space-around;
+    width: 10rem;
+    border: solid rgba(0, 128, 0, 0) 2px;
 }
 .explore{
     display: flex;
@@ -102,6 +130,7 @@
         color: white;
         width: 20px;
         height: 20px;
+        margin-bottom: 5px;
     }
     .iconsMedia{
         display: flex;
@@ -125,5 +154,20 @@
     .explore > a{
         font-size: 0.8rem;
     }
-    
+    .globalFooter > h2{
+        font-size: 8px;
+        align-self: center;
+        font-weight: 400;
+        text-shadow: 2px 2px 2px rgb(0, 0, 0);
+        margin-bottom: 0;
+    }
+    .iconsMedia{
+        display: flex;
+        justify-content: space-around;
+        width: 5rem;
+    }
+    .socialMedia > h3{ 
+        margin: 0px 0px 5px 15px;
+        color: rgb(157, 128, 184);
+    }
 }

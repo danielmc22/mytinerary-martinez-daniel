@@ -8,27 +8,21 @@ import LogoCompleto from "./img/logo_completo.png";
 import Footer from './components/footer';
 
 
-
 function App() {
 
   return (
-
-
-    <BrowserRouter> 
-
+    <BrowserRouter>
 
       <div className="App">
+        <NavBar />
 
-      <NavBar/>
-      <Routes>
-        <Route path='/inicio' element={<Home/>} />
-        <Route path='/cities' element={<Cities/>} />
-      </Routes>
-      <Footer/>
+        <Routes>
+          <Route path='/inicio' element={<Home />} />
+          <Route path='/cities' element={<Cities />} />
+        </Routes>
 
-
-      
-    </div>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

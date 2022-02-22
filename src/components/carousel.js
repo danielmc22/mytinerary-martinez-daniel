@@ -45,15 +45,11 @@ export default function Carousel() {
 
 
 
-      { cities.map(ciudad =>
+      {cities.map(ciudad =>
 
-        <SwiperSlide> 
-          {/* <img src={process.env.PUBLIC_URL + `./imgCiudades${ciudad.image}`}/> */}
-          
+        <SwiperSlide>  
             <img className="imgCarousel" src={ciudad.image}/>
-            <p className="nombreImagen">{ciudad.name}</p>
-          
-
+            <p className="nombreImagen">{ciudad.name}</p> 
         </SwiperSlide>
         
         )}

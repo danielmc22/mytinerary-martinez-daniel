@@ -32,8 +32,8 @@ export default function Carousel() {
         spaceBetween={30}
         /*centeredSlides={true}*/
         autoplay={{
-          delay: 2500,
-          disableOnInteraction: false
+          delay: 3500,
+          disableOnInteraction: true
         }}
         pagination={{
           clickable: true

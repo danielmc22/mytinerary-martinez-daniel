@@ -1,12 +1,21 @@
 import React from 'react'
 import "../../styles/cities.css";
+import BodyCities from '../bodyCities';
+import Carousel from "../carousel"
 
-const cities = () => {
+
+const Cities = () => {
   return (
+
+
     <div className='containerGlobal'>
-        <h1> Page under construction... </h1>
+
+        <BodyCities />
+        
+
     </div>
+
   )
 }
 
-export default cities
+export default Cities

@@ -6,8 +6,6 @@ import { Link as LinkRouter } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
-/* import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {} from "@fortawesome/free-brands-svg-icons" */
 
 
 const Footer = () => {

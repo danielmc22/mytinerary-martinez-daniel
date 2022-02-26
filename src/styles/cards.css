@@ -1,0 +1,56 @@
+.containerCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 32px;
+    /* border: solid green 2px; */
+    }
+    .inputSearch{
+        width: 50%;
+        height: 40px;
+        padding-left: 15px;
+        border: rgb(71, 88, 186) solid 2px;
+        border-radius: 30px;
+        font-family: 'M PLUS 1', sans-serif;
+        /* box-shadow: 2px 2px rgb(71, 88, 186); */
+    }
+    .card{
+        display: flex;
+        background-color: rgb(21, 33, 66);
+        width: 77%;
+        height: 45vh;
+        margin: 2rem;
+        border: solid black 1px;
+        border-radius: 30px;
+        object-fit: contain;
+    }
+    .card > img{
+        border-radius: 30px;
+        width: 60%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    
+    .ContainerTxtCard{
+        display: flex;
+        width: 95%;
+        flex-direction: column;
+        /* border: white solid 2px; */
+    }
+    
+    .containerTitulo{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        /* border: white solid 2px; */
+        /* background-color: rgb(40, 54, 94); */
+        
+    }
+    .containerTitulo > h3{
+        font-family: 'M PLUS 1', sans-serif;
+        font-size: 23px;
+        padding: 12px 0px;
+        color: white;
+    }

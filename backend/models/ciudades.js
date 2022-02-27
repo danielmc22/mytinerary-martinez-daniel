@@ -6,7 +6,7 @@ const ciudadesSchema = new mongoose.Schema({      /* nueva instancia de mongoose
     descripcion:{type:String, required:true}
     })
 
-    const Ciudades = mongoose.model("ciudades",  ciudadesSchema)  /*se llama una nueva inst. de mongoose (.model) 
+    const Ciudades = mongoose.model("cities",  ciudadesSchema)  /*se llama una nueva inst. de mongoose (.model) 
     utilizamos el metodo model para crear un nuevo metodo de consulta  y entre () nos trae colección "ciudades" de mi
     base de datos y como parametro le pasamos "ciudadesSchema"   */
 

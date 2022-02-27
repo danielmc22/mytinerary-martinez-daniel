@@ -13,7 +13,7 @@ const ciudadesController = {
             console.log(err)
         }
         res.json({                                  /* si llega la respuesta ("res" linea 5) que se muestre como un json */
-        response: error ? 'ERROR' : {ciudades},  /* si ña respuesta es error entonces tirame error - sino mostrame las ciudades */
+        response: error ? 'ERROR' : {ciudades},  /* si la respuesta es error entonces tirame error - sino mostrame las ciudades */
         success: error ? false : true,
         error: error
 
@@ -26,3 +26,5 @@ module.exports = ciudadesController
 
 /* obtener ciudades es un controlador con estructura de objeto... si querems por.ej. modificar una ciudad 
 deberiamos crear otro objeto debajo del que ya existe  */
+
+/* Luego  sigue establecer las rutas las rutas que deben llevar un end point. se crea una nueva carpeta dentro de backend para albergar las routes o rutas */

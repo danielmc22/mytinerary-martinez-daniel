@@ -13,7 +13,7 @@ const ciudadesController = {
             console.log(err)
         }
         res.json({                                  /* si llega la respuesta ("res" linea 5) que se muestre como un json */
-        response: error ? 'ERROR' : {ciudades},  /* si la respuesta es error entonces tirame error - sino mostrame las ciudades */
+        response: error ? 'ERROR' : {ciudades},  /* si la respuesta es error entonces tirame error - sino mostrame las ciudades que pido en la linea 10*/
         success: error ? false : true,
         error: error
 

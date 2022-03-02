@@ -18,6 +18,31 @@ const ciudadesController = {
         error: error
 
         }) 
+    },
+                                            
+    cargarCiudad: async(req,res)=>{         /* Controlador para cargar una nueva ciudad desde el front. */
+        console.log(req.body)
+        const {name, country, descripcion} = req.body.dataInput
+        new Ciudades({name:ciudad, 
+                     country:pais,
+                     descripcion: descripcion}).save()   /* salva  */
+            .then((respuesta) => res.json({respuesta}))
+    },
+
+    borrarCiudad: async (req,res)=>{
+        const id = req.params.id
+        
+           await Ciudades.findOneAndDelete({_id:id})
+
+    },
+
+    modificarCiudad: async (req, res)=>{
+        const id = req.params.id
+        const ciudad = req.body.dataInput
+
+        let ciudadb = await Ciudades.findOneAndUpdate({_id:id}, ciudad)
+         console.log(ciudadb)
+
     }
 
 

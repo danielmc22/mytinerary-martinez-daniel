@@ -2,11 +2,12 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from "./components/navBar";
+import Detalle from "./components/detalleCiudad";
 import Home from "./components/paginas/home"
 import Cities from "./components/paginas/cities"
 import LogoCompleto from "./img/logo_completo.png";
 import Footer from './components/footer';
-
+import ScrollTop from "./components/scrollTop"
 
 function App() {
 
@@ -15,11 +16,13 @@ function App() {
 
       <div className="App">
         <NavBar />
+        <ScrollTop />
 
         <Routes>
         <Route path='/' element={<Home />} /> {/* ruta predefinida por si no encuenyra alguna*/}
           <Route path='/inicio' element={<Home />} />
           <Route path='/cities' element={<Cities />} />
+          <Route path='/detalle' element={<Detalle />} />
         </Routes>
 
         <Footer />

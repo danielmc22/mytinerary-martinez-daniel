@@ -1,21 +1,20 @@
 
 import React, {useEffect, useState} from 'react' //IMPORTO PAQUETES DE REACT
+import { Link as LinkRouter } from 'react-router-dom';
 import axios from 'axios'
-import cities from "../../src/ciudades.js"
 import "../styles/cards.css"
-
-
+import NotFoundImg from "../img/not_found.png"
 
 
 const Cards = () => {
                          {/*ENTRE CONST Y EL RETURN SE HACEN OPERACIONES LOGICAS Y SI ES NECESARIO SE CREAN CONST Y DEMAS*/ }
-     /* const [searchTerm, setSearchTerm] =  useState("")  */    { /* el 1o representa lo que se va a escribir en el input */ }
-  
-  const [ciudades, setCiudades] = useState()           /* estado que almacenará los datos dinamicos */
-  const [cardCiudades, setCardCiudades] = useState()   /* estados que controlaran la tarjeta estatica */
-  const [busqueda, setBusqueda] = useState("")           /* estados que controlaran la busqueda en el input */
+         
+  const [ciudades, setCiudades] = useState([])           /* se crea el estado para controlar los datos dinámicos */
+  const [cardCiudades, setCardCiudades] = useState([])     /* estados que controlaran la tarjeta estatica */
+  const [busqueda, setBusqueda] = useState("")           /* estado que controlará l que se digita en la busqueda  el 1o representa lo que se va a escribir en el input */
 
   console.log(ciudades)
+  console.log(busqueda)
 
   const peticionGet = async () => {
     await axios.get (`http://localhost:4000/api/allcities`)
@@ -28,6 +27,8 @@ const Cards = () => {
    }) 
   }
 
+
+
   const capturaInput = event =>{          /* captura lo escrito en elinput y almacenarlo en el estado */
     setBusqueda(event.target.value)       /* almacenar la busqueda dentro del estado */
     filtro (event.target.value)
@@ -35,8 +36,9 @@ const Cards = () => {
 
   const filtro = (palabraBusqueda) =>{
     var resultadoBusqueda = cardCiudades.filter ((item)=>{
-      if(item.name.trim().toString().toLowerCase().includes(palabraBusqueda.toLowerCase())  ){
+      if(item.name.trim().toString().toLowerCase().startsWith(palabraBusqueda.toLowerCase())){
         return item
+
       }
     })
     setCiudades(resultadoBusqueda)
@@ -46,15 +48,6 @@ const Cards = () => {
   peticionGet();
   },[])
 
-
-  /* ESTE ES OTRO METODO PARA LLAMAR A LA API  -------------------------------------------------------------------- */
-  /* useEffect(()=>{
-
-     axios.get (`http://localhost:4000/api/allcities`)
-    .then(response =>  setCiudades(response.data.response.ciudades))
-
-  },[]) */
-/* ESTE ES OTRO METODO PARA LLAMAR A LA API  -------------------------------------------------------------------- */
 
 
     return (
@@ -67,7 +60,7 @@ const Cards = () => {
             onChange={capturaInput}         /*setSearchTerm es igual a event.target.value*/
             />                             {/* cierre input */}
 
-          {ciudades && 
+          {ciudades.length !== 0 ? (ciudades && 
           ciudades.map((ciudad) => (
 
             <div className='card'>
@@ -80,13 +73,20 @@ const Cards = () => {
                 <p> {"Country: " + ciudad.country} </p>
                 <p> {"Official Language: " + ciudad.Language} </p>
                 <p> {"Description: " + ciudad.descripcion} </p>
-              
+
+                <div className='btnContainer'>
+                  <LinkRouter to="/detalle" className="link">More Info</LinkRouter>
+                </div>
+
             </div>
-          </div>
+          </div>    /*  */
 
-           ) )}
+           ) )) :(
+                <div className='containerImgNot'>
+                  <img src={NotFoundImg} className="imgNotFound" /> 
+                </div>
+           )}
 
-          
         </div>
     )
   }

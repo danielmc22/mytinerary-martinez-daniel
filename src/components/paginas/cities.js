@@ -1,7 +1,7 @@
 import React from 'react'
 import "../../styles/cities.css";
 import BodyCities from '../bodyCities';
-import Carousel from "../carousel"
+import Cards from "../cards"
 
 
 const Cities = () => {
@@ -12,6 +12,8 @@ const Cities = () => {
 
         <BodyCities />
         
+        <Cards />
+
 
     </div>
 

@@ -22,7 +22,7 @@ function App() {
         <Route path='/' element={<Home />} /> {/* ruta predefinida por si no encuenyra alguna*/}
           <Route path='/inicio' element={<Home />} />
           <Route path='/cities' element={<Cities />} />
-          <Route path='/detalle' element={<Detalle />} />
+          <Route path='/detalle/:id' element={<Detalle />} />
         </Routes>
 
         <Footer />

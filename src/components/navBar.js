@@ -105,7 +105,7 @@ const NavBar = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}                    
-                sx={{ my: 2, marginLeft: "4vw", color: 'white', display: 'block', fontWeight:800, fontSize:"18px" }}
+                sx={{ my: 2, marginLeft: "4vw", color: 'black', display: 'block', fontWeight:800, fontSize:"18px" }}
               >
                 {page}
               </Button>
@@ -119,7 +119,7 @@ const NavBar = () => {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px', color: 'black' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{

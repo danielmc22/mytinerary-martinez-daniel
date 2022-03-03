@@ -12,7 +12,7 @@ const Cards = () => {
   const [ciudades, setCiudades] = useState([])           /* se crea el estado para controlar los datos dinámicos */
   const [cardCiudades, setCardCiudades] = useState([])     /* estados que controlaran la tarjeta estatica */
   const [busqueda, setBusqueda] = useState("")           /* estado que controlará l que se digita en la busqueda  el 1o representa lo que se va a escribir en el input */
-  const [cargando, setCargando] = useState(true)
+    
 
   console.log(ciudades)
   console.log(busqueda)
@@ -23,7 +23,7 @@ const Cards = () => {
       console.log(response.data.response.ciudades);
       setCiudades(response.data.response.ciudades);
       setCardCiudades(response.data.response.ciudades);
-      setCargando(false)
+    
     }).catch(error => {
       console.log(error)
    }) 
@@ -36,7 +36,7 @@ const Cards = () => {
 
   const filtro = (palabraBusqueda) =>{
     var resultadoBusqueda = cardCiudades.filter ((item)=>{
-      if(item.name.trim().toString().toLowerCase().startsWith(palabraBusqueda.toLowerCase())){
+      if(item.name.toString().toLowerCase().startsWith(palabraBusqueda.trim().toLowerCase())){
         return item
 
       }
@@ -46,15 +46,8 @@ const Cards = () => {
 
   useEffect(()=>{
   peticionGet();
-  },[ciudades])
+  },[])
 
-  if(cargando){
-    <div class="spinner">
-    <div class="bounce1"></div>
-    <div class="bounce2"></div>
-    <div class="bounce3"></div>
-  </div>
-  }
 
     return (
         <div className='containerCards'>
@@ -66,7 +59,7 @@ const Cards = () => {
             onChange={capturaInput}         /*setSearchTerm es igual a event.target.value*/
             />                             {/* cierre input */}
 
-          {ciudades.length !== 0 ? (ciudades && 
+          {ciudades.length !== 0 ? ( ciudades &&
           ciudades.map((ciudad) => (
 
             <div className='card'>

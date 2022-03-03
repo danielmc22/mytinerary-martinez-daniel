@@ -33,7 +33,7 @@ const ciudadesController = {
         const id = req.params.id
         
            await Ciudades.findOneAndDelete({_id:id})
-
+        
     },
 
     modificarCiudad: async (req, res)=>{

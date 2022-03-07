@@ -3,10 +3,10 @@ const mongoose = require("mongoose")   /* traemos a moongoose    --   Mongoose e
 const ciudadesSchema = new mongoose.Schema({      /* nueva instancia de mongoose y se llama al metodo schema para crear el objeto */
     name:{type:String, required:true},          /* ciudadesSchema contendrà el modelo de objeto que usaremos para interactuar modificar  nuestra base de datos  */
     country:{type:String, required:true},
-    image:{type: String, required:true},
+    image:{type: String, required:false},
     descripcion:{type:String, required:true},
-    Language:{type:String, required: true},
-    Population:{type:Number, required:true}
+    Language:{type:String, required: false},
+    Population:{type:Number, required:false}
     })
 
     const Ciudades = mongoose.model("cities",ciudadesSchema)  /*se llama una nueva inst. de mongoose (.model) 

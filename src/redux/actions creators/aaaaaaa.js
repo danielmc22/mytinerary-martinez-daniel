@@ -1,0 +1,1 @@
+// Todos los pedidos a la api deben ser hechos desde actions y reducers

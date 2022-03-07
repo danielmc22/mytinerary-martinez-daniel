@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import "../styles/detalleCard.css"
 import { Link as LinkRouter } from 'react-router-dom';
-
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import "../styles/cards.css"
@@ -10,11 +9,8 @@ import "../styles/cards.css"
 const DetalleCiudad = () => {
 
   const [ciudades, setCiudades] = useState([])
-  const {id} = useParams() 
-  
-
-
-  
+  const {id} = useParams()      //el ID llega aqui al componente detalle como parametro a traves de useParams y le llega desde cities desde el boton de enlace de la card
+                                
      useEffect(()=>{
 
       axios.get(`http://localhost:4000/api/allcities`)       /* CLASE 4 DE MERN 2DA PARTE DEL VIDEO */

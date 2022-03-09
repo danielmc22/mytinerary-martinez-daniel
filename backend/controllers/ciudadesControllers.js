@@ -7,7 +7,8 @@ const ciudadesController = {
         let error = null
 
         try{                                 /* aqui se espera la respuesta del modelo para meterlo en let ciudades linea 6 --  */
-            ciudades = await Ciudades.find()                                          
+            ciudades = await Ciudades.find() 
+            .populate ("itinerarios")                                        
         }catch(err){
             error = err                           /* si no se establece la conexion se captura el error y se muestra por console.log */
             console.log(err)
@@ -46,10 +47,10 @@ const ciudadesController = {
 
     borrarCiudad: async (req,res)=>{
         const id = req.params.id
-        
-           await Ciudades.findOneAndDelete({_id:id})
-        
+
+        await Ciudades.findOneAndDelete({_id:id})
     },
+    
 
     modificarCiudad: async (req, res)=>{
         const id = req.params.id

@@ -19,16 +19,16 @@
     .card{
      display: flex;
      background-color: rgb(21, 33, 66);
-     width: 77%;
+     width: 77% !important;
      height: 50vh;
      margin: 2rem;
      border: solid black 1px;
      border-radius: 30px;
      object-fit: contain;
     }
-    .card > img{
+    .imgCard2{
     border-radius: 30px;
-    width: 60%;
+    width: 100%;
     object-fit: cover;
     overflow: hidden;
     }
@@ -102,6 +102,13 @@
             height: 45%;
             font-size: 12px;
            }
+           .containerTitulo > h3{
+            font-family: 'M PLUS 1', sans-serif;
+            font-size: 17px !important;
+            padding: 12px 0px;
+            color: white;
+            text-shadow: 2px 2px 2px rgba(16, 1, 1, 0.864);
+            }
         }
 
 
@@ -121,7 +128,7 @@
 
 .containerTitulo > h3{
   font-family: 'M PLUS 1', sans-serif;
-  font-size: 20px;
+  font-size: 20px !important;
   padding: 12px 0px;
   color: white;
   text-shadow: 2px 2px 2px rgba(16, 1, 1, 0.864);

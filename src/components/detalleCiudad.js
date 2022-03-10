@@ -32,8 +32,8 @@ function DetalleCiudad (props) {
       {city._id && (  
         <div>
 
-             <div className='card'>
-              <img className='imgCard' src={city.image}  alt="imagen-titulo-cards"></img>
+             <div className='card2'>
+              <img className='imgCard2' src={city.image}  alt="imagen-titulo-cards"></img>
             <div className='ContainerTxtCard' >
               <div className='containerTitulo' >
                 <h3 className="">{city.name} </h3>

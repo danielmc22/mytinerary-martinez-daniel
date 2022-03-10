@@ -26,26 +26,28 @@ const ItinerariosController = {
         let error = null
 
         try{
-            itinerario = await Itinerarios.findOne({_id:id})
+            itinerario = await Itinerarios.find({cityId:id})
         }catch(err){
             error = err
         }
         res.json({
-            response: error ? 'ERROR' : ciudad,
+            response: error ? 'ERROR' : itinerario,
             succes: error ? false : true,
         })
     },
 
     crearItinerario: async(req, res)=> {
-        const { image, name, price, hours} = req.body.input
+        console.log(req.body)
+        const { image, name, userName,imageUser, hours, price, activities, hashtags,comments} = req.body
         new Itinerarios({
-            image,
-            name,
-            price,
-            hours,              
-            }).save()
+            image, name, userName,imageUser,likes, price, hours, hashtags, activities,comments}).save()
                 .then((respuesta)=> res.json({respuesta}))
+                .catch(error=>{
+                console.log(error)
+                })
         },
+
+
 
     borrarItinerario: async(req, res)=> {
         const id = req.params.id

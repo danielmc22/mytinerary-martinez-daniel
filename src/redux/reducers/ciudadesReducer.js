@@ -1,6 +1,8 @@
 const initialState = {
-    ciudades:[],
+    cities:[],
     axiliar:[],
+    filterCities:[],
+    city: {},
     
 }
 
@@ -11,13 +13,13 @@ const ciudadesReducer = (state = initialState, action)=>{
             return {
                 ...state,
                 cities: action.payload,       //con la carga vamos a actualizar el state inicial    
-                auxiliar: action.payload,
+                filterCities: action.payload,
             }
         case 'fetchOne':
             return {
                 ...state,
-                cities: action.payload,
-                auxiliar: action.payload
+                city: action.payload,
+                
             }
         case 'delete':
             return {
@@ -37,7 +39,7 @@ const ciudadesReducer = (state = initialState, action)=>{
 
             return {
                 ...state,
-                cities: filtrado
+                filterCities: filtrado
             }
         default:
             return state

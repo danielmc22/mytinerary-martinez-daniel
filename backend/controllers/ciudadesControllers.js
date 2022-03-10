@@ -8,7 +8,7 @@ const ciudadesController = {
 
         try{                                 /* aqui se espera la respuesta del modelo para meterlo en let ciudades linea 6 --  */
             ciudades = await Ciudades.find() 
-            .populate ("itinerarios")                                        
+                                                    
         }catch(err){
             error = err                           /* si no se establece la conexion se captura el error y se muestra por console.log */
             console.log(err)

@@ -1,10 +1,9 @@
-import { ITINERARIES_GET } from '../actions/types';
+import { ITINERARIES_GET } from '../actionsCreators/types';
 
 const initialState = {
-    itinerarios:[],
+    itineraries:[],
     aux:[],
   
-    
 }
 
 const itinerariosReducers = (state = initialState, action)=>{
@@ -12,9 +11,8 @@ const itinerariosReducers = (state = initialState, action)=>{
         case ITINERARIES_GET:
             return {                
                     ...state,
-                    itinerarios: action.payload,
-                    
-                                       
+                    itineraries: action.payload,
+                                      
                 }
         default: 
         

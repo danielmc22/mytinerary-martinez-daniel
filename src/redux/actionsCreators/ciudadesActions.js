@@ -6,13 +6,18 @@ const ciudadesActions = {                                 //las Actions es un so
     fetchearCiudades: () => {                           //cada llamado va a ser una función
         return async(dispatch, getState)=>{             //la Fx asyncrona va dentro de un return en este caso de las actions
             const res = await axios.get('http://localhost:4000/api/allcities')   //guardo mis ciudades en res
-            dispatch({type:'fetch', payload:res.data.response.cities})     //finalmente despacha una acción y envía una carga
+            dispatch({type:'fetch', payload:res.data.response.ciudades})     //finalmente despacha una acción y envía una carga
         }                                                                  //el tipo tiene que coincidir con el case" del reducer
     },
     fetchearUnaCiudad: (id) => {                                               //llega el id como parametro de la ciudad
         return async(dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/allcities/'+id)
-            dispatch({type: 'fetchOne', payload:res.data.response })
+            try{
+                const res = await axios.get('http://localhost:4000/api/cities/'+id)
+                console.log(res.data)
+                dispatch({type: 'fetchOne', payload:res.data.response })
+            } catch (error){
+                console.log(error)
+            }
         }
     },
     borrarCiudad: (id)=>{
@@ -33,7 +38,7 @@ const ciudadesActions = {                                 //las Actions es un so
     cargarCiudad: (name, descripcion)=>{
         return async(dispatch, getState)=>{
             const res = await axios.post('http://localhost:4000/api/allcities',{name,descripcion})
-            dispatch({type:'chargeCities', payload:res.data.response.cities})
+            dispatch({type:'chargeCities', payload:res.data.response.ciudades})
         }
     }
 }

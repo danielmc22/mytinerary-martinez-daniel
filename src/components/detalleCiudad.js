@@ -11,16 +11,16 @@ import ItinerariosActions from "../redux/actionsCreators/itinerariosActions"
 
 
 
-function DetalleCiudad (props) {
+function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatchToProps
 
   const {id} = useParams()      //el ID llega aqui al componente detalle como parametro a traves de useParams y le llega desde cities desde el boton de enlace de la card
   
-  const {city, itineraries } = props
+  const {city, itineraries } = props    //destructuring de las props
 
   console.log(props)
 
      useEffect(()=>{
-      props.fetchearUnaCiudad(id)
+      props.fetchearUnaCiudad(id)       //llamo a fetchearUnaCiudad y la saco de las props
       props.itinerariesPerCity(id)
       },[])
 
@@ -59,19 +59,17 @@ function DetalleCiudad (props) {
       </div>
    ) }
 
-
-const mapDispatchToProps = {
+          //En este caso llamo a la ACTION "fetchearUnaCiudad" - la llamo de "CiudadesActions" .y llamo fetchear una ciudad 
+const mapDispatchToProps = {          
     fetchearUnaCiudad: CiudadesActions.fetchearUnaCiudad,
-    itinerariesPerCity: ItinerariosActions.itinerariesPerCity,
+    itinerariesPerCity: ItinerariosActions.itinerariesPerCity,  //y llamo a la ACTION "itinerariesPerCity" DESDE...
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {   //Toma los estados 
     return{
-    city: state.Data.city,
+    city: state.Data.city,              //me retorna los estados city e itineraries
     itineraries: state.itinerariosReducers.itineraries,
 
 }}
-
-
 
 export default connect (mapStateToProps, mapDispatchToProps) (DetalleCiudad)

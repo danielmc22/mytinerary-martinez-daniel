@@ -8,9 +8,8 @@ import ciudadesActions from "../redux/actionsCreators/ciudadesActions"
 import NotFoundImg from "../img/not_found.png"
 
 
-
 function Cards (props) {
-                         {/*ENTRE CONST Y EL RETURN SE HACEN OPERACIONES LOGICAS Y SI ES NECESARIO SE CREAN CONST Y DEMAS*/ }
+     {/*ENTRE CONST Y EL RETURN SE HACEN OPERACIONES LOGICAS Y SI ES NECESARIO SE CREAN CONST Y DEMAS*/ }
          
   /* const [ciudades, setCiudades] = useState([])  */             /* se crea el estado para controlar los datos dinámicos */
   /* const [cardCiudades, setCardCiudades] = useState([]) */        /* estados que controlaran la tarjeta estatica */
@@ -52,7 +51,6 @@ function Cards (props) {
 }, []);
 
 
-
   /* peticionGet(); */
   /* },[]) */
 
@@ -64,7 +62,6 @@ function Cards (props) {
 
   };
 
-
     return (
         <div className='containerCards'>
 
@@ -74,8 +71,6 @@ function Cards (props) {
             placeholder="Search Your Next Destination..."
             onChange={searching}         /*setSearchTerm es igual a event.target.value*/
             />                             {/* cierre input */}
-
-
 
             {props.filterCities?.length !== 0 && props.filterCities!= null ? (
              props.filterCities?.map((ciudad) => (
@@ -107,15 +102,14 @@ function Cards (props) {
         </div>
     );
   }
-  
 
-  const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
 
-    return{
-        cities: state.Data.cities,
-        filterCities: state.Data.filterCities,     
-    }
-    }
+return{
+  cities: state.Data.cities,
+  filterCities: state.Data.filterCities,     
+}
+}
 
 const mapDispatchToProps = {
  fetchearCiudades: ciudadesActions.fetchearCiudades,

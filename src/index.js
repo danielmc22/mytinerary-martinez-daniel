@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Fondo from './img/fondoHeader.jpg';
+import 'bootstrap/dist/css/bootstrap.css';
 //REDUX  --  REDUX--
 
 

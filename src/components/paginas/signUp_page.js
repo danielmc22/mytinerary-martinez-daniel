@@ -1,21 +1,26 @@
-import React from "react";
-/* import SignUp from "./signup";
-import SignIn from "./signin"; */
+import React from 'react';
+/* import SignUp from "../signUp/signup";
+import SignIn from "../signUp/signin"; */
 import { connect } from 'react-redux';
 /* import { BrowserRouter, Routes, Route } from 'react-router-dom'; */
 import userActions from '../../redux/actionsCreators/userActions';
-import Snackbar from "../Snackbar"
+/* import "../../styles/cities.css"; */
+/* import Container from "../signUp/container"
+import Snackbar from "../Snackbar" */
+import SignUp from "../signUp/signup"
 
 
-function Container(props) {
-	
-	function SignOut() {
+function SignUp_page (props) {
+
+  function SignOut() {
 		props.SignOutUser(props.user.email)
 		console.log(props.user)
-	}
-	
-	return (
-		<>
+  }
+
+
+  return (
+    
+      <>
 			{props.user ? <><h1>Usuario conectado {props.user.fullName} desde {props.user.from[0]}</h1>
 				<div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
 					<button onClick={SignOut} className="btn btn-primary btn-block" style={{ maxWidth: 400 }}> SignOut  </button>
@@ -40,11 +45,14 @@ function Container(props) {
 				</article>
 			</div>
 
-			<Snackbar /> 
-		</>
-	)
+      <SignUp />
 
-}
+
+    </>
+
+  )
+};
+
 const mapStateToProps = (state) => {
 	return {
 		user: state.userReducer.user, 
@@ -55,4 +63,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Container) 
+export default connect(mapStateToProps, mapDispatchToProps) (SignUp_page)

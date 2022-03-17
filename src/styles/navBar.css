@@ -5,16 +5,20 @@
 
   .NavBar{
     background-color: rgb(21, 33, 66) !important; 
+
     
   }
 
   .link{
     text-decoration: none !important;
-    color: white;
     font-weight: 800;
   }
-
+ 
   .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
-    background-color:black !important;
+     color:white !important; 
+     
+  }
+  a{
+    color: rgb(133, 147, 168) !important;
   }
 

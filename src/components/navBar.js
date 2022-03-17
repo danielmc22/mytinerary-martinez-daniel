@@ -17,7 +17,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 
 
 const pages = [ <LinkRouter to="inicio" className="link">Home</LinkRouter>,  <LinkRouter to="cities" className="link">Cities</LinkRouter>]; 
-const settings = ['Sing In', 'Sing Up'];
+const settings = ['Sing In', <LinkRouter to="signUp" className="link">SignUp</LinkRouter>];  
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -105,7 +105,7 @@ const NavBar = () => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}                    
-                sx={{ my: 2, marginLeft: "4vw", color: 'black', display: 'block', fontWeight:800, fontSize:"18px" }}
+                sx={{ my: 2, marginLeft: "4vw", color: 'white', display: 'block', fontWeight:800, fontSize:"18px" }}
               >
                 {page}
               </Button>
@@ -115,7 +115,7 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="https://i.pinimg.com/236x/69/1b/b8/691bb8985c6583a6fb679c98b7ebc357.jpg" />
               </IconButton>
             </Tooltip>
             <Menu

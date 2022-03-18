@@ -1,0 +1,19 @@
+.txtContainer{
+    margin: 15px;
+    color: rgb(67, 67, 167);
+}
+.card{
+    height: 22vh !important;
+    width: 35% !important;
+    padding: 0 !important;
+    margin: 15px !important;
+}
+
+.card-body > h4{
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 0; 
+}
+.form-control{
+    margin: 0px !important;
+}

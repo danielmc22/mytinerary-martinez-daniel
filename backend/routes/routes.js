@@ -37,7 +37,7 @@ Router.route("/cityItinerarios")
 
 /*                       RUTAS USERS  */
 Router.route('/auth/signUp')
-.post(validator, signUpUsers)
+.post(validator, signUpUsers)  //llega la info de actions, y pasa primero a validator , si pasa las pruebas le pasa los datos a "signUser"
 
 Router.route('/auth/signIn')
 .post(signInUser)

@@ -16,3 +16,10 @@
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
 }
+.buttonsocial{
+	background-color: rgb(23, 70, 199);
+	color: white;
+	border-radius: 20px;
+	padding: 11px;
+	margin-bottom: 18px;
+}

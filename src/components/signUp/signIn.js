@@ -3,14 +3,16 @@ import React from 'react'
 import { connect } from 'react-redux';
 import userActions from '../../redux/actionsCreators/userActions';
 import { Link as LinkRouter } from 'react-router-dom';
-import Container from "./container ";
-import Snack from '../Snackbar'
-/* import FacebookSignIn from "./facebooksignin" */
+import Container from "./container";
+import Snack from '../../components/Snackbar'
+import "../../styles/signIn.css"
+import FacebookSignIn from "./facebookSignIn" 
 
 function SignIn(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
+		console.log(event.target)
 		const logedUser = {
 			email: event.target[0].value,
 			password: event.target[1].value,
@@ -21,13 +23,14 @@ function SignIn(props) {
 
 return (
 
-	<div className='d-flex flex-column justify-content-center align-items-center' > 
+	<div className='d-flex flex-column justify-content-center align-items-center containerSignIn' > 
 
 		<Snack/>
 		<Container/>
-		{/* <FacebookSignIn/> */}
+		<FacebookSignIn/> 
 
 		<h4 className='mb-3'>Or SignIn using our form</h4>
+
 		<form onSubmit={handleSubmit}>
 			<div className="form-group input-group">
 				<div className="input-group-prepend">
@@ -43,9 +46,9 @@ return (
 			</div>
 
 			<div className="form-group">
-				<button type="submit" className="btn btn-primary btn-block"> SignIn  </button>
+				<button type="submit" className="btn btn-primary btn-block"> Sign In  </button>
 			</div>
-			<div className="text-center">Dont Have an account? <LinkRouter to="/signup">SignUp</LinkRouter> </div>
+			<div className="text-center">Dont Have an account? <LinkRouter to="/signUp">SignUp</LinkRouter> </div>
 		</form>
 
 	 </div> 

@@ -14,12 +14,20 @@ import MenuItem from '@mui/material/MenuItem';
 import "../styles/navBar.css";
 import LogoPeque from "../img/solo_logo.png";
 import { Link as LinkRouter } from 'react-router-dom';
+import userActions from '../redux/actionsCreators/userActions';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import {connect} from "react-redux";
+import SignIn from "./signUp/signin";
+import SignUp from "./signUp/signup";
 
 
 const pages = [ <LinkRouter to="inicio" className="link">Home</LinkRouter>,  <LinkRouter to="cities" className="link">Cities</LinkRouter>]; 
-const settings = ['Sing In', <LinkRouter to="signUp" className="link">SignUp</LinkRouter>];  
+const signOut = (props) => {
+  props.SignOutUser(props.user.email)
+} 
 
-const NavBar = () => {
+
+const NavBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -115,7 +123,11 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="https://i.pinimg.com/236x/69/1b/b8/691bb8985c6583a6fb679c98b7ebc357.jpg" />
+
+                {props.user ? (<Avatar alt="Remy Sharp" src={props.user.urlImage} />)
+                 : <AccountCircle id="accountcircle"/> }
+                
+                
               </IconButton>
             </Tooltip>
             <Menu
@@ -134,11 +146,28 @@ const NavBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {props.user ? <> <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography onClick={signOut}  color="black" textAlign="center"> Sing Out </Typography>
+                </MenuItem> </> : <>
+                <MenuItem>
+                  <Typography textAlign="center">
+                  <LinkRouter  to="/signIn">
+                    Sign In
+                    </LinkRouter>
+                    </Typography>
                 </MenuItem>
-              ))}
+                <MenuItem>
+                  <Typography textAlign="center">
+                    <LinkRouter  to="/signUp">
+                    Sign Up
+                    </LinkRouter>
+                    </Typography>
+                </MenuItem>
+                </>
+                    
+                
+              }
+
             </Menu>
           </Box>
         </Toolbar>
@@ -146,4 +175,21 @@ const NavBar = () => {
     </AppBar>
   );
 };
-export default NavBar;
+
+
+
+
+
+const mapStateToProps = (state) => {
+
+  return{
+    user: state.userReducer.user,    
+  }
+  }
+  
+  const mapDispatchToProps = {
+    SignOutUser: userActions.SignOutUser,
+
+  }     
+  
+  export default connect(mapStateToProps,mapDispatchToProps)(NavBar)

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import userActions from '../../redux/actionsCreators/userActions';
 import { Link as LinkRouter } from 'react-router-dom';
 import Snack from '../Snackbar'
-/* import FacebookSignUp from "./facebooksignup" */
+import "../../styles/signUp.css"
+import FacebookSignUp from "./facebookSignUp" 
 import {useState } from "react";
 
 function SignUp(props) {
@@ -20,7 +21,6 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
       console.log(props)
 
 
-
     const handleSubmit = (event) => {
         event.preventDefault()
         const userData = {                                  //Todo Esto viaja a userActions
@@ -33,11 +33,13 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
         }
         props.signUpUser(userData)
 
+
     }
 
     return (
 
-        <>
+        <div className='containerSignUp' > 
+
         <div className='d-flex flex-column justify-content-center align-items-center' >
             <div>
                   <h2 className="mt-3 text-center"> Select your country </h2>
@@ -60,7 +62,7 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
                 <h1 className='mb-5 mt-5'>Create a new User</h1>
                 <h2 className='mb-5'>Using Facebook</h2>
 
-                {/* <FacebookSignUp country={selectPaises}/> */}
+                <FacebookSignUp country={selectPaises}/> 
 
                 <h2>Or with our Form</h2>
 
@@ -103,14 +105,15 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
                     <div className="form-group d-flex justify-content-center align-items-center">
                         <button type="submit" className="btn btn-primary btn-block mt-3"> Create Account  </button>
                     </div>
-                    <div className="text-center mt-3">Do you have an existing account? <LinkRouter to="/signin">SignIn</LinkRouter> </div>
+                    <div className="text-center mt-3 txtLast ">Do you have an existing account? 
+                    <LinkRouter to="/signIn"> Sign In </LinkRouter> </div>
                 </form>
                 </section>    
                 ) : (
                     <h3>Select your country to proceed with the SignUp</h3>
                   )}
                 </div>
-                </> 
+        </div>
     )
 
 }

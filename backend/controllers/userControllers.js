@@ -1,7 +1,7 @@
 const User = require('../models/users')
 const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')        //NPM CRYPTO
-const nodemailer = require('nodemailer') //NPM NODEMAILER
+const nodemailer = require('nodemailer') //NPM NODEMAILER   -  PARA ENVIAR EMAILS DESDE NODE
 const jwt = require('jsonwebtoken')
 
 
@@ -13,20 +13,20 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
         port: 465,
         secure: true,
         auth: {
-            user: "useremailverifyMindHub@gmail.com",    //DEFINIMOS LOS DATOS DE AUTORIZACION DE NUESTRO PROVEEDOR DE
-            pass: "mindhub2021"                          //COREO ELECTRONICO, CONFIGURAR CUAENTAS PARA PERMIR EL USO DE APPS
+            user: "verify.email.itinerary@gmail.com",    //DEFINIMOS LOS DATOS DE AUTORIZACION DE NUESTRO PROVEEDOR DE
+            pass: "verify12345678"                          //COREO ELECTRONICO, CONFIGURAR CUAENTAS PARA PERMIR EL USO DE APPS
         }                                               //CONFIGURACIONES DE GMAIL
     })
 
     // EN ESTA SECCION LOS PARAMETROS DEL MAIL 
-    let sender = "useremailverifyMindHub@gmail.com"  
+    let sender = "verify.email.itinerary@gmail.com"  
     let mailOptions = { 
         from: sender,    //DE QUIEN
         to: email,       //A QUIEN
-        subject: "Verificacion de email usuario ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
+        subject: "User verification at Mytinerary ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
         html: `
         <div >
-        <h1 style="color:red">Presiona <a href=http://localhost:4000/api/verify/${uniqueString}>aqui</a> para confirma tu email. Gracias </h1>
+        <h3 style="color:green">Press <a href=http://localhost:4000/api/verify/${uniqueString}>here</a> to confirm and verify your email. Thanks </h3>
         </div>
         `
     
@@ -55,13 +55,13 @@ const usersControllers = {
             res.redirect("http://localhost:3000/") //REDIRECCIONA AL USUARIO A UNA RUTA DEFINIDA
             //return  res.json({success:true, response:"Su email se ha verificado correctamente"})
         }
-        else { res.json({ success: false, response: "Su email no se ha verificado" }) }
+        else { res.json({ success: false, response: "Your email has not been verified" }) }
     },
 
 
     signUpUsers:async (req,res)=>{
         console.log(req.body)
-        let {fullName, email, password, from } = req.body.userData
+        let {fullName, email, password, from, country, urlImage, uniqueString, emailVerificado  } = req.body.userData
       const test = req.body.test
 
         try {
@@ -74,7 +74,7 @@ const usersControllers = {
                     console.log("resultado de if " +(usuarioExiste.from.indexOf(from) === 0 )) //INDEXOF = 0 EL VALOR EXISTE EN EL INDICE EQ A TRUE -1 NO EXITE EQ A FALSE
                     res.json({ success: false,
                                from:"signup", 
-                               message: "Ya has realizado tu SignUp de esta forma por favor realiza SignIn" })
+                               message: "You have already made your registration by this way, now you can do SignIn" })
                 } else {
                     const contraseñaHasheada = bcryptjs.hashSync(password, 10)
                      
@@ -88,7 +88,7 @@ const usersControllers = {
                     res.json({
                         success: true, 
                         from:"signup", 
-                        message: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp y agregarlo a tus metodos de SignIN "
+                        message: " We sent you an email to verify it, please check your inbox to complete registration and add it to your login methods.  "
                     }) 
                     
                     }else{
@@ -97,7 +97,7 @@ const usersControllers = {
                     
                     res.json({ success: true,
                                from:"signup", 
-                               message: "Agregamos "+from+ " a tus medios para realizar signIn" })
+                               message: "We add "+from+ " to your ways to do SignIn" })
                 }
             }
             } else {
@@ -122,7 +122,7 @@ const usersControllers = {
                     res.json({
                         success: true, 
                         from:"signup",
-                        message: "Felicitaciones se ha creado tu usuario con " +from
+                        message: "Congratulations! a new user has been created by" +from
                     }) // AGREGAMOS MENSAJE DE VERIFICACION
     
                 } else {
@@ -134,13 +134,13 @@ const usersControllers = {
                     res.json({
                         success: true, 
                         from:"siggup",
-                        message: "Te enviamos un email para validarlo, por favor verifica tu casilla para completar el signUp "
+                        message: "We sent you an email to verify it, please check your inbox to complete the SingUp. "
                     }) // AGREGAMOS MENSAJE DE VERIFICACION
                 } 
             }
         } catch (error) {
             console.log(error)
-            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" }) //CAPTURA EL ERROR
+            res.json({ success: false, message: " Something went wrong, try later. " }) //CAPTURA EL ERROR
         }
     },
     signInUser: async (req, res) => {
@@ -150,7 +150,7 @@ const usersControllers = {
             const usuarioExiste = await User.findOne({ email })
 
             if (!usuarioExiste) {// PRIMERO VERIFICA QUE EL USUARIO EXISTA
-                res.json({ success: false, message: "Tu usuarios no ha sido registrado realiza signUp" })
+                res.json({ success: false, message: "Your user has not been registred, please SingUp." })
 
             } else {
                 if (from !== "form-Signin") { 
@@ -163,6 +163,7 @@ const usersControllers = {
                                         id:usuarioExiste._id,
                                         fullName: usuarioExiste.fullName,
                                         email: usuarioExiste.email,
+                                        urlImage: usuarioExiste.urlImage,
                                         from:usuarioExiste.from
                                         }
                         await usuarioExiste.save()
@@ -173,13 +174,13 @@ const usersControllers = {
                         res.json({ success: true,  
                                    from:from,
                                    response: {token,userData }, 
-                                   message:"Bienvenido nuevamente "+userData.fullName,
+                                   message:"Wellcome a "+userData.fullName,
                                  })
 
                     } else {
                         res.json({ success: false, 
                             from: from, 
-                            message:"No has realizado el registro con "+from+"si quieres ingresar con este metodo debes hacer el signUp con " +from
+                            message:"You have not registered with "+from+" if you want to get into with this way you must realize the Sign Up with " +from
                           })
                     }
                 } else { 
@@ -200,18 +201,18 @@ const usersControllers = {
                         res.json({ success: true, 
                             from: from, 
                             response: {token, userData }, 
-                            message:"Bienvenido nuevamente "+userData.fullName,
+                            message:"Wellcome again! "+userData.fullName,
                           })
                         }else{
                             res.json({ success: false, 
                                 from: from,  
-                                message:"El usuario o el password no coinciden",
+                                message:"User or password don't match",
                               })
                         }
                     }else{
                         res.json({ success: false, 
                             from: from, 
-                            message:"No has verificado tu email, por favor verifica ti casilla de emails para completar tu signUp"
+                            message:" You dont have verified your email, please check your inbox to complete your sign up"
                           }) 
                     }
 
@@ -220,7 +221,7 @@ const usersControllers = {
 
         } catch (error) {
             console.log(error);
-            res.json({ success: false, message: "Algo a salido mal intentalo en unos minutos" })
+            res.json({ success: false, message: "Something went wrong, try in some minutes" })
         }
     },
     signOutUser: async (req, res) => {

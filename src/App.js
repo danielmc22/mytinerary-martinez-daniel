@@ -9,12 +9,13 @@ import LogoCompleto from "./img/logo_completo.png";
 import Footer from './components/footer';
 import ScrollTop from "./components/scrollTop"
 import CardItinerario from "./components/cardItinerario";
-import SignUp from "./components/signUp/signup"
-import SignIn from "./components/signUp/signup"
+import SignUp from "./components/signUp/signup";
+import SignIn from "./components/signUp/signin";
+import {connect} from "react-redux";
 
 
 
-function App() {
+function App(props) {
 
   return (
     <BrowserRouter>
@@ -29,9 +30,13 @@ function App() {
           <Route path='/inicio' element={<Home />} />
           <Route path='/cities' element={<Cities />} />
           <Route path='/detalle/:id' element={<Detalle />} />
-          <Route path="/signin" element={<SignIn/>}/>
+
+          {!props.user && (<>
+           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/signup" element={<SignUp/>}/> 
+          </>) }
           
+
         </Routes>
 
         <Footer />
@@ -41,4 +46,11 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userReducer.user,
+  }
+}
+
+
+export default connect(mapStateToProps,null)(App)

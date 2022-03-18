@@ -2,17 +2,17 @@ const joi = require('joi')
 
 const validator = (req, res, next) => {
     const schema = joi.object({
-        fullName: joi.string().max(20).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
-            'string.min':'fullName / El NOMBRE debe contener mas de 3 caracteres',
-            'string.max':"fullName / El nombre debe contener como maximo 20 caracteres"
+        fullName: joi.string().max(30).min(3).trim().pattern(new RegExp('[a-zA-Z]')).required().messages({
+            'string.min':'fullName / Your fullName must have at less 3 characters',
+            'string.max':"fullName / your fullName must not exceed 20 characters"
         }),
 
         email: joi.string().email({ minDomainSegments: 2 }).required().messages({
-            'string.email':'Formato incorrecto de email'
+            'string.email':'Wrong format email, please verify it'
         }),
         password: joi.string().pattern(new RegExp('[a-zA-Z0-9]')).required().trim().min(8).max(30).messages({
-            'string.min':'El password debe contener minimo 8 caracteres y contener mayuscula, minuscula y numero',
-            'string.pattern':"El password debe ser alphanumerico y contener un numero"
+            'string.min':'your password must have minimum 8 characters, and at least a number',
+            'string.pattern':"Your password must be alphanumeric and contain a number"
         }),
         urlImage: joi.string(),
         country: joi.string().required(),
@@ -21,10 +21,10 @@ const validator = (req, res, next) => {
 
     const validation = schema.validate(req.body.userData, {abortEarly:false})
        
-    if (validation.error) {
+    if (validation.error) {             //si hay un error segun lo establecido en la validacion -> nos aparece e detalle que es el mensaje que establecimos 
         
         return res.json({success: false, from:"validator", message:validation.error.details, test: validation})
-        
+                                                                            // ditails es el mensaje que se estableció en cada elemento a validar
     }
     
     next()

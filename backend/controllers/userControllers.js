@@ -109,6 +109,7 @@ const usersControllers = {
                 const nuevoUsuario = await new User({
                     fullName,
                     email,
+                    urlImage,
                     password:[contraseñaHasheada],
                     uniqueString:crypto.randomBytes(15).toString('hex'),
                     emailVerificado:false,
@@ -145,7 +146,7 @@ const usersControllers = {
     },
     signInUser: async (req, res) => {
 
-        const { email, password,  from } = req.body.logedUser
+        const { email, password,  from, urlImage  } = req.body.logedUser
         try {
             const usuarioExiste = await User.findOne({ email })
 
@@ -195,6 +196,7 @@ const usersControllers = {
                             id: usuarioExiste._id,
                             fullName: usuarioExiste.fullName, 
                             email: usuarioExiste.email,
+                            urlImage: usuarioExiste.urlImage,
                             from:usuarioExiste.from
                             }
                             const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn:  60* 60*24 })
@@ -232,6 +234,21 @@ const usersControllers = {
         res.json(console.log('sesion cerrada ' + email))
     },
 
+    verificarToken: (req, res) => {
+        console.log(req.user)
+        if (!req.err) {
+            res.json({
+                success: true,
+                response: { id: req.user.id, firstName: req.user.firstName, lastName: req.user.lastName, country: req.user.country, imagenURL: req.user.imagenURL, email: req.user.email, from: "token" },
+                message: "Welcome back " + req.user.firstName
+            })
+        } else {
+            res.json({
+                success: false,
+                message: "Please retry signingIn"
+            })
+        }
+    },
 }
 module.exports = usersControllers
 

@@ -22,14 +22,21 @@ import SignUp from "./signUp/signup";
 
 
 const pages = [ <LinkRouter to="inicio" className="link">Home</LinkRouter>,  <LinkRouter to="cities" className="link">Cities</LinkRouter>]; 
-const signOut = (props) => {
-  props.SignOutUser(props.user.email)
-} 
+
 
 
 const NavBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const signOut = () => {
+
+    props.SignOutUser(props.user.email)
+    console.log(props.user.urlImage)
+
+  } 
+
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -175,9 +182,6 @@ const NavBar = (props) => {
     </AppBar>
   );
 };
-
-
-
 
 
 const mapStateToProps = (state) => {

@@ -5,7 +5,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 import Snack from '../Snackbar'
 import "../../styles/signUp.css"
 import FacebookSignUp from "./facebookSignUp" 
-import {useState } from "react";
+import { useState } from "react";
 
 function SignUp(props) {
 const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", "Ecuador", "Mexico", "Paraguay", "Peru", "Venezuela" ]
@@ -18,6 +18,7 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
         console.log(event.target.value);
         setSelectPaises(event.target.value);
       }
+
       console.log(props)
 
 
@@ -28,11 +29,12 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
             email: event.target[1].value,                       
             password: event.target[2].value,
             urlImage: event.target[3].value,
-            country: selectPaises,
+            country: event.target[4].value,
             from: "form-Signup",
         }
         props.signUpUser(userData)
 
+        console.log(event)
 
     }
 

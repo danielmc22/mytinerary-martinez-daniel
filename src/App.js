@@ -12,6 +12,7 @@ import CardItinerario from "./components/cardItinerario";
 import SignUp from "./components/signUp/signup";
 import SignIn from "./components/signUp/signin";
 import {connect} from "react-redux";
+import Snackbar from './components/Snackbar';
 
 
 
@@ -23,6 +24,7 @@ function App(props) {
       <div className="App">
         <NavBar />
         <ScrollTop />
+        <Snackbar />
 
         <Routes>
           <Route path='*' element={<Home />} />

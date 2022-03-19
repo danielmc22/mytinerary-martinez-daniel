@@ -6,7 +6,7 @@ const userActions = {
                                             // y ahora sale para las routes... (routes de signUp) - luego va al controller
         return async (dispatch, getState) => {
 
-            const res = await axios.post('http://localhost:4000/api/auth/signUp', { userData})
+            const res = await axios.post('http://localhost:4000/api/auth/signUp', { userData })
             console.log(res)
             dispatch({type: 'message', 
                        payload: {view: true,

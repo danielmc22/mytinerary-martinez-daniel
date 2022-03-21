@@ -11,6 +11,7 @@ const itinerariosSchema = new mongoose.Schema({
     activities: { type: String, required: true },
     hashtags: [{ type: String, required: false }],
     comments: [{ type: String, required: true }],
+    likes: { type:Array, required: false},
     cityId: {type: mongoose.Schema.Types.ObjectId, ref: 'cities'}  
   });
 

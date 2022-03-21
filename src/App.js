@@ -1,5 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react'
+import userActions from '../src/redux/actionsCreators/userActions'
 import './App.css';
 import NavBar from "./components/navBar";
 import Detalle from "./components/detalleCiudad";
@@ -17,6 +19,15 @@ import Snackbar from './components/Snackbar';
 
 
 function App(props) {
+
+  useEffect(() => {
+                                                            // ----PASSPORT TOKEN - PERMANECER CONECTADO !!!
+    if(localStorage.getItem('token')!== null){             //va verificar dentro de localstorage - obtiene los items - si hay algo dentro del token (difer. a null)
+      const token = localStorage.getItem("token")          //guardo el token encontrado en : const token
+      props.VerificarToken(token)                         //mando el token a la funcion VerificarToken que esta en actions.
+    }
+  },[])
+
 
   return (
     <BrowserRouter>
@@ -54,5 +65,9 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = {
+  VerificarToken: userActions.VerificarToken,
+}
 
-export default connect(mapStateToProps,null)(App)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

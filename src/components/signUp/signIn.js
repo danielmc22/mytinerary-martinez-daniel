@@ -7,6 +7,7 @@ import Container from "./container";
 import Snack from '../../components/Snackbar'
 import "../../styles/signIn.css"
 import FacebookSignIn from "./facebookSignIn" 
+import ImgCallTo from "../../img/Call_to_action.png"
 
 function SignIn(props) {
 
@@ -22,7 +23,7 @@ function SignIn(props) {
 	}
 
 return (
-
+<div className='mainContainerSignIn'>
 	<div className='d-flex flex-column justify-content-center align-items-center containerSignIn' > 
 
 		<Snack/>
@@ -48,10 +49,18 @@ return (
 			<div className="form-group">
 				<button type="submit" className="btn btn-primary btn-block"> Sign In  </button>
 			</div>
-			<div className="text-center">Dont Have an account? <LinkRouter to="/signUp">SignUp</LinkRouter> </div>
+			<div className="text-center txtDontHave">Dont Have an account? <LinkRouter to="/signUp">SignUp</LinkRouter> </div>
 		</form>
-
 	 </div> 
+
+		<div className='divCallTo'>
+			<img src={ImgCallTo} className="imgCallTo"/>
+			<h3> Hey Traveler!</h3>
+			<h4> Don't you have an account yet?</h4>
+		<LinkRouter to="/signUp" className="linkLogin"> SIGN UP </LinkRouter>
+	</div>
+
+</div>
 
 
 	)

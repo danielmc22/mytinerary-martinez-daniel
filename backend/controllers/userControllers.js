@@ -175,7 +175,7 @@ const usersControllers = {
                         res.json({ success: true,  
                                    from:from,
                                    response: {token,userData }, 
-                                   message:"Wellcome a "+userData.fullName,
+                                   message:"Wellcome  "+userData.fullName,
                                  })
 
                     } else {
@@ -231,7 +231,7 @@ const usersControllers = {
         const email = req.body.closeuser
         const user = await User.findOne({ email })
         await user.save()
-        res.json(console.log('sesion cerrada ' + email))
+        res.json(console.log('Your session has been closed ' + email))
     },
 
     verificarToken: (req, res) => {
@@ -239,16 +239,19 @@ const usersControllers = {
         if (!req.err) {
             res.json({
                 success: true,
-                response: { id: req.user.id, firstName: req.user.firstName, lastName: req.user.lastName, country: req.user.country, imagenURL: req.user.imagenURL, email: req.user.email, from: "token" },
-                message: "Welcome back " + req.user.firstName
+                response: { id: req.user.id, fullName: req.user.fullName, country: req.user.country, urlImage: req.user.urlImage, email: req.user.email, from: "token" },
+                message: "Welcome back " + req.user.fullName
             })
         } else {
             res.json({
                 success: false,
-                message: "Please retry signingIn"
+                message: "Please retry signIn"
             })
         }
     },
+
+
+
 }
 module.exports = usersControllers
 

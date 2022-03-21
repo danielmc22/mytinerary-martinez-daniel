@@ -23,7 +23,7 @@ function Container(props) {
 				</div>
 			</>
 				: <h2 className="txtContainer">Not user connected</h2>}
-			<div className="card bg-light">
+			<div className="containerCaja">
 				<article className="card-body mx-auto" > {/* style={{ maxWidth: 400 }} */}
 					<h4 className="card-title mt-3 text-center">User Account</h4>
 					<p className="text-center">Get started with your free account</p>

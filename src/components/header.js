@@ -26,7 +26,7 @@ const Header = () => {
       </div>
 
       <div className='containerBoton'>
-        <p>Come On! Click Here & lets start</p> 
+        <p className='comeOnTxt'>Come On! Click Here & lets start</p> 
         <LinkRouter to="/cities" className="link">LET'S TO EXPLORE</LinkRouter>
       </div>
 

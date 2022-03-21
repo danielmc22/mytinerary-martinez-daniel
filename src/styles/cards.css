@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 32px;
+    padding-top: 32px; 
     /* border: solid green 2px; */
     }
     .inputSearch{
@@ -14,53 +14,63 @@
     border: rgb(71, 88, 186) solid 3px;
     border-radius: 30px;
     font-family: 'M PLUS 1', sans-serif;
-    
     }
+
+
+
+
     .card{
-     display: flex;
-     background-color: rgb(21, 33, 66);
-     width: 77% !important;
-     height: 50vh;
-     margin: 2rem;
-     border: solid black 1px;
-     border-radius: 30px;
-     object-fit: contain;
+    border: solid black 2px !important;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+     
+     background-color: rgb(21, 33, 66) !important;
+     width: 75% !important;
+     height: 70vh !important;
+     margin: 2rem !important;
+     border-radius: 30px !important;
+     object-fit: contain !important;
     }
-    .imgCard2{
-    border-radius: 30px;
-    width: 100%;
-    object-fit: cover;
-    overflow: hidden;
+    .imgCard{
+    border-radius: 30px !important;
+    width: 50% !important;
+    height: 100%;
+    object-fit: cover !important;
+    overflow: hidden !important;
+    border: 2px solid rgb(92, 124, 206);
     }
     
     .ContainerTxtCard{
-    display: flex;
-    width: 95%;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 8px 5px 4px 16px;
-    /* border: white solid 2px; */
+    display: flex !important;
+    width: 48% !important;
+    height: 100%;
+    flex-direction: column !important;
+    justify-content: space-evenly !important;
+    padding: 8px 5px 4px 16px !important;
     }
     .ContainerTxtCard > p{
-    color: rgb(184, 184, 184);
-    padding: 3px 0px;
+    color: rgb(255, 255, 255) !important;
+    padding: 2px 0px !important;
     }
     
     .containerTitulo{
-     display: flex;
-     justify-content: center;
-     width: 100%;
-     margin: 0;
-     padding: 0;
+     display: flex !important;
+     justify-content: center !important;
+     width: 100% !important;
+     margin: 0 !important;
+     padding: 0 !important;
      /* border: white solid 2px; */
      /* background-color: rgb(40, 54, 94); */
         
     }
     .containerTitulo > h3{
-    font-family: 'M PLUS 1', sans-serif;
-    font-size: 23px;
-    padding: 2px 0px;
-    color: white;
+    font-family: 'Lobster', cursive;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 28px !important;
+    padding: 2px 0px !important;
+    color: white !important;
     }
 
     .btnContainer{
@@ -68,14 +78,12 @@
     border-radius: 30px;
     width: 100px;
     align-self: center;
-    margin: 40px;
     text-align: center;
     padding: 8px;
-    margin-bottom: 20px;
     }
     
     .btnContainer > h4{
-    color: white;
+    color: white !important;
     }
 
     .aviso{
@@ -94,24 +102,6 @@
 
 
 
-    @media screen and (max-width: 1100px){
-        
-        .ContainerTxtCard > p{
-            color: rgb(184, 184, 184);
-            margin: 3px;
-            height: 45%;
-            font-size: 12px;
-           }
-           .containerTitulo > h3{
-            font-family: 'M PLUS 1', sans-serif;
-            font-size: 17px !important;
-            padding: 12px 0px;
-            color: white;
-            text-shadow: 2px 2px 2px rgba(16, 1, 1, 0.864);
-            }
-        }
-
-
 
  @media screen and (max-width: 870px) {
 
@@ -125,10 +115,9 @@
     font-size: 12px;
     }
     
-
 .containerTitulo > h3{
-  font-family: 'M PLUS 1', sans-serif;
-  font-size: 20px !important;
+  font-family: 'Lobster', cursive;
+  font-size: 25px !important;
   padding: 12px 0px;
   color: white;
   text-shadow: 2px 2px 2px rgba(16, 1, 1, 0.864);
@@ -138,29 +127,31 @@
     flex-direction: column;
     overflow: hidden;
     border-radius: 5px;
-    height: 75vh;
+    height: 80vh;
     
    }
    .card > img{
     border-radius: 1px;
-    width: 100%;
+    width: 100% !important;
     height: 50%;
     object-fit: cover;
     /* overflow: hidden; */
     }
     .ContainerTxtCard{
-        display: flex;
-        width: 100%;
-        height: 50%;
-        flex-direction: column;
-        justify-content: space-evenly;
+     display: flex;
+     width: 100% !important;
+     height: 50%;
+     flex-direction: column;
+     justify-content: space-evenly;
 
-        padding: 5px;
-        border: white solid 2px;
+     /* padding: 5px;  */
+     
         }
+
     .ContainerTxtCard > p{
      color: rgb(184, 184, 184);
-     margin: 5px;
+     font-size: 13px !important;
+     /* margin: 5px; */
      height: 45%;
 
      font-size: 10px;
@@ -171,10 +162,8 @@
         border-radius: 30px;
         width: 100px;
         align-self: center;
-        /* margin: 40px; */
         text-align: center;
-        /* padding: 8px; */
-        /* margin-bottom: 20px; */
+        margin-bottom: 20px; 
         font-size: 15px;
         }
         
@@ -186,27 +175,42 @@
   
   }
 
-  @media screen and (max-width: 470px){
-    .inputSearch{
-        width: 50%;
-        height: 20px;
-        padding-left: 15px;
-        border: rgb(71, 88, 186) solid 2px;
-        border-radius: 30px;
-        font-family: 'M PLUS 1', sans-serif;
-        font-size: 7px;
-        
-        }
-    .ContainerTxtCard > p{
-        color: rgb(184, 184, 184);
-        margin: 3px;
-        height: 45%;
-        font-size: 9px;
-       }
-    .imgNotFound{
-        width: 300px;
-        height: 200px;
-        margin: 1rem 0rem;
+  @media screen and (max-width: 600px){
+ .inputSearch{
+  width: 50%;
+  height: 20px;
+  padding-left: 15px;
+  border: rgb(71, 88, 186) solid 2px;
+  border-radius: 30px;
+  font-family: 'M PLUS 1', sans-serif;
+  font-size: 7px;
+  
+  }
+  .containerTitulo > h3{
+   font-family: 'Lobster', cursive;
+   font-size: 17px !important;
+   padding: 12px 0px;
+   color: white;
+   text-shadow: 2px 2px 2px rgba(16, 1, 1, 0.864);
+   }
+ .ContainerTxtCard > p{
+     color: rgb(184, 184, 184);
+     margin: 3px;
+     height: 45%;
+     font-size: 10px !important;
+    }
+ .imgNotFound{
+     width: 300px;
+     height: 200px;
+     margin: 1rem 0rem;
+ }
+ .btnContainer{
+    border: white solid 1px;
+    border-radius: 30px;
+    width: 100px;
+    align-self: center;
+    text-align: center;
+    padding: 4px;
     }
 
 }

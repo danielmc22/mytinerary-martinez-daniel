@@ -8,7 +8,7 @@
     object-fit: contain;
     box-shadow: inset 0 0 0 1000px rgba (0, 0, 0, 5);
     background-color: rgba(88, 66, 40, 0.425);
-    border: rgb(94, 94, 94) solid 3px;
+    /* border: rgb(94, 94, 94) solid 3px; */
 }
 .containerBoton{
     display: flex;
@@ -25,16 +25,17 @@
     margin: 2rem 0rem 0rem 0rem;
 }
 .containerBoton > a{
-    color: white;
-    margin: 1rem 0rem 4rem 0rem;
+    color: rgb(9, 17, 79) !important;
+    font-weight: 900 !important;
+    margin: 0.7rem 0rem 4rem 0rem;
     text-decoration: none;
-    padding: 0.7rem 1.2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 30px;
-    background-color: rgb(21, 33, 66);
-    border: solid 5px rgb(12, 22, 51);
+    background-color: rgb(109, 129, 184);
+    border: solid 3px rgb(32, 46, 87);
 }
 .containerBoton > a:hover{
-    background-color: rgb(208, 213, 226);
+    background-color: rgb(208, 213, 226) !important;
     color: rgb(14, 11, 68);
     box-shadow: black 1 1 1 1;
     font-weight: 700;
@@ -59,6 +60,7 @@
 }
 .containerHeader > img{
     justify-content: flex-start;
+
 }
 .imagenHeader{
     width: 200px;
@@ -68,7 +70,7 @@
 }
 .txtMytinerary{
     display: flex;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 .txtMy{
     color: rgba(1, 16, 58, 0.89);
@@ -102,7 +104,7 @@
 }
 /*   DROP   -- DROP      DROP   -- DROP   */
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 530px) {
     .imagenHeader{
         width: 180px;
         height: 150px;
@@ -126,9 +128,13 @@
         text-shadow: 1px 1px 2px rgb(0, 0, 0);
     }
     .containerBoton > p{
-        color: transparent;
+        color: transparent !important;
+        font-size: 1px !important;
         height: 2px;
- 
+    }
+    .comeOnTxt{
+        color: transparent !important;
+        font-size: 0.1px !important;
     }
 }
 

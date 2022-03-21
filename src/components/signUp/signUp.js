@@ -6,6 +6,7 @@ import Snack from '../Snackbar'
 import "../../styles/signUp.css"
 import FacebookSignUp from "./facebookSignUp" 
 import { useState } from "react";
+import ImgCallTo from "../../img/Call_to_action.png"
 
 function SignUp(props) {
 const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", "Ecuador", "Mexico", "Paraguay", "Peru", "Venezuela" ]
@@ -40,8 +41,9 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
 
     return (
 
-        <div className='containerSignUp' > 
+<div className='mainContainerSignUp'>
 
+    <div className='containerSignUp' > 
         <div className='d-flex flex-column justify-content-center align-items-center' >
             <div>
                   <h2 className="mt-3 text-center"> Select your country </h2>
@@ -61,14 +63,14 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
                 <section>       
         
                 <Snack/>
-                <h1 className='mb-5 mt-5'>Create a new User</h1>
-                <h2 className='mb-5'>Using Facebook</h2>
+                <h1 className='mb-1 mt-3 text-center '> Create a new User </h1>
+                <h2 className='mb-5 mt-2 text-center '> Using Facebook </h2>
 
-                <FacebookSignUp country={selectPaises}/> 
+                <FacebookSignUp className='d-flex  justify-self-center align-self-center' country={selectPaises}/> 
 
-                <h2>Or with our Form</h2>
+                <h2 className='mb-5 mt-2 text-center '>Or with our Form</h2>
 
-                <form onSubmit={handleSubmit}>
+                <form className='d-flex flex-column justify-content-center align-items-center' onSubmit={handleSubmit}>
                     <div className="form-group input-group">
                         <div className="input-group-prepend">
                             
@@ -105,7 +107,7 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
                     </select>
         
                     <div className="form-group d-flex justify-content-center align-items-center">
-                        <button type="submit" className="btn btn-primary btn-block mt-3"> Create Account  </button>
+                        <button type="submit" className="btn btn-primary btn-block mt-1 mb-4"> Create Account  </button>
                     </div>
                     <div className="text-center mt-3 txtLast ">Do you have an existing account? 
                     <LinkRouter to="/signIn"> Sign In </LinkRouter> </div>
@@ -116,6 +118,16 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
                   )}
                 </div>
         </div>
+
+
+        <div className='divCallTo'>
+            <img src={ImgCallTo} className="imgCallTo"/>
+            <h3> Hey Traveler!</h3>
+            <h4> Already have an account ?</h4>
+            <LinkRouter to="/signIn" className="linkLogin"> LOGIN HERE </LinkRouter>
+        </div>
+
+    </div>
     )
 
 }

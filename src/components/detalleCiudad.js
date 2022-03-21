@@ -10,7 +10,6 @@ import CardItinerario from "../components/cardItinerario"
 import ItinerariosActions from "../redux/actionsCreators/itinerariosActions"
 
 
-
 function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatchToProps
 
   const {id} = useParams()      //el ID llega aqui al componente detalle como parametro a traves de useParams y le llega desde cities desde el boton de enlace de la card
@@ -30,23 +29,21 @@ function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatch
 
       <div>
       {city._id && (  
-        <div>
+        <div className='contenedorCardX'>
 
+            
              <div className='card2'>
-              <img className='imgCard2' src={city.image}  alt="imagen-titulo-cards"></img>
+              <img className='imgCardX' src={city.image}  alt="imagen-titulo-cards"></img>
             <div className='ContainerTxtCard' >
               <div className='containerTitulo' >
                 <h3 className="">{city.name} </h3>
               </div> 
 
-              
-              
                 {/* <p> {"Country: " + city.country} </p> */}
-                
              </div>
           </div>   
-          {
-            itineraries.length > 0 && itineraries.map(itinerario => {
+
+          {itineraries.length > 0 && itineraries.map(itinerario => {
               return <CardItinerario itinerario={itinerario} /> 
             })
           }
@@ -55,7 +52,7 @@ function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatch
       
       )}
       </div>
-      <LinkRouter to="/cities" className="link BtnCities">COME BACK TO CITIES</LinkRouter>
+      <LinkRouter to="/cities" className="link BtnCitiesX">COME BACK TO CITIES</LinkRouter>
       </div>
    ) }
 

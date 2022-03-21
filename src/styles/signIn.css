@@ -1,5 +1,10 @@
+.mainContainerSignIn{
+    display: flex;
+}
+
 .containerSignIn{
-    margin-bottom: 25px;
+    width: 45%;
+    height: 100vh;
 }
 .mb-3{
     font-size: 18px;
@@ -9,4 +14,69 @@
 }
 .input-group-text{
     padding: 8px !important;
+}
+form{
+    margin: 1rem;
+}
+.txtDontHave{
+    margin: 1rem 0rem;
+}
+
+@media screen and (max-width: 750px) {
+    .imgCallTo{
+        justify-self: flex-start;
+        margin: 40px 0px;
+        height: 35%;
+        width: 30%;
+    }
+    .divCallTo > h3 {
+        font-family: 'Lobster', cursive;
+        font-size: 23px;
+        color: rgb(118, 118, 230);
+        text-shadow: black 0px 1px ;
+    }
+    .divCallTo > h4 {
+        font-size: 12px;
+    }
+    .linkLogin{
+        padding: 5px 30px;
+        margin-top: 25px;
+        text-decoration: none;
+        border-radius: 10px;
+        background-color: rgb(118, 118, 230);
+        color: white !important;
+    }
+}
+@media screen and (max-width: 650px) {
+    .mainContainerSignIn{
+        display: flex;
+        flex-direction: column;
+    }
+    .containerSignIn{
+        width: 100%;
+    }
+    .imgCallTo{
+        justify-self: flex-start;
+        margin: 0px 0px;
+        height: 45%;
+        width: 50%;
+    }
+    .divCallTo > h3 {
+        font-family: 'Lobster', cursive;
+        font-size: 35px;
+        color: rgb(118, 118, 230);
+        text-shadow: black 0px 1px ;
+    }
+    .divCallTo > h4 {
+        font-size: 23px;
+    }
+    .linkLogin{
+        padding: 10px 40px;
+        margin-top: 7px;
+        text-decoration: none;
+        border-radius: 10px;
+        background-color: rgb(118, 118, 230);
+        color: white !important;
+        margin-bottom: 20px;
+    }
 }

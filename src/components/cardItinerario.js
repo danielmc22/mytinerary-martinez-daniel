@@ -1,6 +1,7 @@
-
 // --  Card  -- Card 
 import * as React from 'react';
+import axios from "axios";
+import {useEffect, useState} from "react";
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -20,7 +21,6 @@ import  "../styles/cardItinerario.css"
 /* import itinerariosActions from "../redux/actionsCreators/itinerariosActions" */
 
 
-
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -36,8 +36,14 @@ const ExpandMore = styled((props) => {
 
   export default function CardItinerario({itinerario}) {
     const [expanded, setExpanded] = React.useState(false);
-    
-    console.log(itinerario)
+    const [like, setLike] = useState(0)
+    /* console.log(itinerario)
+    console.log(like)  */
+
+    const likeDislike = async()=>{
+      await axios.put ("http://localhost:4000/api/likesDislike/:id") //CORREGIR END-POINT
+      .then(response => console.log(response))
+    }
 
     const handleExpandClick = () => {
       setExpanded(!expanded);
@@ -50,7 +56,7 @@ const ExpandMore = styled((props) => {
         <CardHeader
           avatar={
             <Avatar className='avatar'>
-            <img className='imgCard' src={itinerario.imageUser}  alt="imagen-titulo-cards"></img>
+            <img className='imgCardZ' src={itinerario.imageUser}  alt="imagen-titulo-cards"></img>
               
             </Avatar>
           }
@@ -66,19 +72,22 @@ const ExpandMore = styled((props) => {
           component="img"
           height="194"
           image={itinerario.image}
-          alt="Paella dish"
+          alt="Itinerario "
         />
         <CardContent >
-          <Typography variant="body2" className='txtItinerario' color="text.secondary">
-          <p> {itinerario.hashtags} </p>
+          <Typography variant="body2" className='txtItinerario' color="white">
+          <p> { (itinerario.hashtags) } </p>
           <p> {"Price: " + itinerario.price} </p>
-          <p> {"You will spend aproximelly : " + itinerario.hours + " hours in this itinerary"} </p>
+          <p> {"You will spend aproximatelly : " + itinerario.hours + " hours in this itinerary"} </p>
           
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
+
+            <FavoriteIcon  className='favoriteBtn' onClick={likeDislike} />
+            <span>{like}</span>
+
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />

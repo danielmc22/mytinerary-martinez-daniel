@@ -20,17 +20,17 @@
     flex-direction: row;
     justify-content:space-around;
     align-items:center;
-    padding-top: 2rem;
+    padding-top: 0.2rem;
     height: auto;
     
 }
 .globalFooter > h2{
     color: white;
-    font-size: 14px;
+    font-size: 14px !important;
     align-self: center;
     font-weight: 400;
     text-shadow: 2px 2px 2px rgb(0, 0, 0);
-    margin-bottom: 3rem;
+    
 }
 
 .primerElemento{
@@ -38,12 +38,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .primerElemento > img{
     width: 150px;
     height: 110px;
-    margin: 2rem;
+    margin: 1rem;
     margin-bottom: 0;
 }
 .primerElemento > p{
@@ -55,14 +55,14 @@
     color: white;
 }
 .socialMedia > h3{ 
-    margin: 0px 0px 25px 15px;
+    margin: 0px 0px 10px 15px;
     color: rgb(157, 128, 184);
 }
 
 .iconoMedia{
     width: 35px;
     height: 35px;
-    padding-right: 20px;
+    padding-right: 10px;
 }
 
 .iconsMedia{
@@ -156,7 +156,7 @@
         font-size: 0.8rem;
     }
     .globalFooter > h2{
-        font-size: 8px;
+        font-size: 13px !important;
         align-self: center;
         font-weight: 400;
         text-shadow: 2px 2px 2px rgb(0, 0, 0);

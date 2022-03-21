@@ -1,3 +1,4 @@
+const { response } = require('express')
 const Itinerarios = require('../models/itinerarios')
 
 const ItinerariosController = {
@@ -61,7 +62,38 @@ const ItinerariosController = {
         const itinerarios= req.body.dataInput
 
         let ciudaddb = await Itinerarios.findOneAndUpdate({_id:id}, itinerarios)
-    }
+    },
+
+
+
+    likeDislike: async (req, res) => {
+       
+        const id = req.params.id
+        const user = req.body.user
+        let itinerario 
+
+        try{
+            itinerario = await Itinerarios.findOne({_id:id})
+
+            if (itinerario.likes.includes(user)) { 
+            Itinerarios.findOneAndUpdate({_id:id}, {$pull :{likes:user}}, {new:true} )
+            .then(response => res.json({ success:true, response:response.likes   }))
+
+            .catch(error => console.log(error))
+
+        } else {
+            Itinerarios.findOneAndUpdate({_id:id}, {$push :{likes:user}}, {new:true} )
+            .then(response => res.json({ success:true, response:response.likes   }))
+
+            .catch(error => console.log(error))
+        }
+
+        }catch(err){
+            error = err
+            response.json({success:false, response:error})
+        }
+       
+    },
     
 
 }

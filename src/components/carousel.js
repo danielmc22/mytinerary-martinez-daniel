@@ -19,7 +19,7 @@ export default function Carousel() {
 
     <div className="containerCarousel">
       <div className="titleCarousel">
-        <h2>Popular MyTineraries!</h2> 
+      <h2>Popular MyTineraries!</h2> 
       </div>
 
       <Swiper 
@@ -29,7 +29,7 @@ export default function Carousel() {
         }}
         slidesPerGroup={2}
         
-        spaceBetween={30}
+        spaceBetween={10}
         /*centeredSlides={true}*/
         autoplay={{
           delay: 4400,

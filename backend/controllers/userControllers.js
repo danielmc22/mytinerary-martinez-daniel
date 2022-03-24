@@ -144,8 +144,8 @@ const usersControllers = {
             res.json({ success: false, message: " Something went wrong, try later. " }) //CAPTURA EL ERROR
         }
     },
-    signInUser: async (req, res) => {
 
+    signInUser: async (req, res) => {
         const { email, password,  from, urlImage  } = req.body.logedUser
         try {
             const usuarioExiste = await User.findOne({ email })
@@ -226,6 +226,7 @@ const usersControllers = {
             res.json({ success: false, message: "Something went wrong, try in some minutes" })
         }
     },
+
     signOutUser: async (req, res) => {
        
         const email = req.body.closeuser

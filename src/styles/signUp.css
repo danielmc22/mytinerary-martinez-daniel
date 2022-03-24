@@ -34,13 +34,13 @@
 }
 .imgCallTo{
     justify-self: flex-start;
-    margin: 40px 0px;
-    height: 57%;
-    width: 50%;
+    margin: 20px 0px;
+    height: 60%;
+    width: 65%;
 }
 .divCallTo > h3 {
     font-family: 'Lobster', cursive;
-    font-size: 35px;
+    font-size: 46px;
     color: rgb(118, 118, 230);
     text-shadow: black 0px 1px ;
 }
@@ -48,11 +48,12 @@
     font-size: 18px;
 }
 .linkLogin{
-    padding: 7px 50px;
-    margin-top: 25px;
+    padding: 13px 50px;
+    margin-top: 5px;
     text-decoration: none;
     border-radius: 10px;
-    background-color: rgb(118, 118, 230);
+    background-color: #1746C7;
+    font-weight: 800; 
     color: white !important;
 }
 

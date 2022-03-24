@@ -21,6 +21,15 @@ form{
 .txtDontHave{
     margin: 1rem 0rem;
 }
+.linkLogin{
+    padding: 13px 50px;
+    margin-top: 25px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #1746C7;
+    font-weight: 800; 
+    color: white !important;
+}
 
 @media screen and (max-width: 750px) {
     .imgCallTo{

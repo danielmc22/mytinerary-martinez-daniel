@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const itinerariosSchema = new mongoose.Schema({
     image: { type: String, required: true },
     name: { type: String, required: true },
@@ -11,8 +10,13 @@ const itinerariosSchema = new mongoose.Schema({
     activities: { type: String, required: true },
     hashtags: [{ type: String, required: false }],
     comments: [{ type: String, required: true }],
-    likes: { type:Array, required: false},
-    cityId: {type: mongoose.Schema.Types.ObjectId, ref: 'cities'}  
+    likes: { type:Array, required: false },
+    cityId: {type: mongoose.Schema.Types.ObjectId, ref: 'cities'},
+    comments:[{
+         comment: {type: String},
+         userID: {type:mongoose.Types.ObjectId, ref:"users"},
+  }],
+
   });
 
   const Itinerarios = mongoose.model("itinerarios", itinerariosSchema);

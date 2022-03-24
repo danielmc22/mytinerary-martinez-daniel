@@ -54,7 +54,9 @@ Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt',{ session:false }), verificarToken)  //passport llama al metodo authenticate y le pasa el tipo de token (jwt) en el segundo parametro se niega que sea un acceso de tipo session, ya que es una autenticacion de usuario
                                                                 //si pasa la verif
 
-Router.route('/likesDislike/:id')
+  /*                       RUTA LIKE DISLIKES  */
+Router.route('/itinerarios/likes/:id')
 .put(passport.authenticate('jwt',{ session:false }), likeDislike)
+
 
 module.exports = Router

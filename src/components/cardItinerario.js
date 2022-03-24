@@ -33,12 +33,10 @@ const ExpandMore = styled((props) => {
   }));
   
 
-
   export default function CardItinerario({itinerario}) {
     const [expanded, setExpanded] = React.useState(false);
     const [like, setLike] = useState(0)
-    /* console.log(itinerario)
-    console.log(like)  */
+    
 
     const likeDislike = async()=>{
       await axios.put ("http://localhost:4000/api/likesDislike/:id") //CORREGIR END-POINT

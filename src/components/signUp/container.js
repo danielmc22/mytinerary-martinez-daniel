@@ -16,34 +16,31 @@ function Container(props) {
 	}
 	
 	return (
-		<>
-			{props.user ? <><h3 className="txtContainer">User connected: {props.user.fullName.toUpperCase()} from  {props.user.from[0]}  </h3>
-				<div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-					<button onClick={SignOut} className="btn btn-primary btn-block" style={{ maxWidth: 400 }}> Sign Out  </button>
-				</div>
-			</>
-				: <h2 className="txtContainer">Not user connected</h2>}
-			<div className="containerCaja">
-				<article className="card-body mx-auto" > {/* style={{ maxWidth: 400 }} */}
-					<h4 className="card-title mt-3 text-center">User Account</h4>
-					<p className="text-center">Get started with your free account</p>
-
-					<p className="divider-text">
-						<span className="bg-light">OR</span>
-					</p>
-
-					 {/* <BrowserRouter>
-						<Routes>
-							{!props.user &&<Route path="/" element={<SignIn />} />}
-							{!props.user &&<Route path="/signup" element={<SignUp />} />}
-						</Routes>
-					</BrowserRouter>  */}
-				</article>
+	<>
+		{props.user ? <><h3 className="txtContainer">User connected: {props.user.fullName.toUpperCase()} from  {props.user.from[0]}  </h3>
+			<div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+				<button onClick={SignOut} className="btn btn-primary btn-block" style={{ maxWidth: 400 }}> Sign Out  </button>
 			</div>
-
-			<Snackbar /> 
 		</>
-	)
+			: <h2 className="txtContainer">Not user connected</h2>}
+		<div className="containerCaja">
+			<article className="card-body mx-auto" > {/* style={{ maxWidth: 400 }} */}
+				<h4 className="card-title mt-3 text-center">User Account</h4>
+				<p className="text-center">Get started with your free account</p>
+				<p className="divider-text">
+					<span className="bg-light">OR</span>
+				</p>
+				 {/* <BrowserRouter>
+					<Routes>
+						{!props.user &&<Route path="/" element={<SignIn />} />}
+						{!props.user &&<Route path="/signup" element={<SignUp />} />}
+					</Routes>
+				</BrowserRouter>  */}
+			</article>
+		</div>
+		<Snackbar /> 
+	</>
+)
 
 }
 const mapStateToProps = (state) => {

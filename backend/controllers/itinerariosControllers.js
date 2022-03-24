@@ -48,14 +48,11 @@ const ItinerariosController = {
                 })
         },
 
-
-
     borrarItinerario: async(req, res)=> {
         const id = req.params.id
 
         await Itinerarios.findOneAndDelete({_id:id})
     },
-
 
     actualizarItinerario: async(req, res)=> {
         const id = req.params.id
@@ -65,36 +62,33 @@ const ItinerariosController = {
     },
 
 
-
     likeDislike: async (req, res) => {
        
-        const id = req.params.id
-        const user = req.body.user
-        let itinerario 
+        const id = req.params.id            //llega como param. un ID desde "axios" y corresponde al itinerario de donde se va a poner o sacar el like
+        const user = req.body.user          //llega por respuesta de passport al evaluar devuelve la info de user y tomamos el ID
 
-        try{
-            itinerario = await Itinerarios.findOne({_id:id})
+        await  Itinerarios.findOne({_id: id})  //buscamos un itinerario que corresponda con el del id recibido como parametro line 67
 
-            if (itinerario.likes.includes(user)) { 
-            Itinerarios.findOneAndUpdate({_id:id}, {$pull :{likes:user}}, {new:true} )
-            .then(response => res.json({ success:true, response:response.likes   }))
+        .then((itinerario) =>{                  //cuando ya tenemos el itinerario
+            console.log(itinerario)
+            if(itinerario.likes.includes(user)){  //de ese itinerario en la propiedad like vamos a buscar si se incluye al usuario, si es asi
+               Itinerarios.findOneAndUpdate({_id:id}, {$pull:{likes:user}},{new:true}) //al itinerario lo vamos a actualizar y le vamos a sacar de likes al user y "new" devuelve el nuevo dato
+               .then((response)=> res.json({success:true, response:response.likes}))
+               .catch((error) => console.log(error))
 
-            .catch(error => console.log(error))
-
-        } else {
-            Itinerarios.findOneAndUpdate({_id:id}, {$push :{likes:user}}, {new:true} )
-            .then(response => res.json({ success:true, response:response.likes   }))
-
-            .catch(error => console.log(error))
-        }
-
-        }catch(err){
-            error = err
-            response.json({success:false, response:error})
-        }
-       
+               
+            }else{      //en caso de que el ID del usuario no este dentro del el array de likes hace lo mismo pero le pushea el like
+                Itinerarios.findOneAndUpdate({_id: id}, {$push:{likes:user}},{new:true}) // $push  es el push pero para actuar en "mongo"
+                .then((response) => res.json({success:true, response:response.likes}))
+                .catch((error) => console.log(error))
+            }
+        })
+        .catch((error) => res.json({success:false, response:error}))
     },
-    
+
 
 }
 module.exports = ItinerariosController
+
+
+

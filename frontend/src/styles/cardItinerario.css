@@ -1,0 +1,96 @@
+.containerDetalle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 50vh; 
+    /* border: solid rgb(251, 255, 0) 4px;  */
+}
+.contenedorCardX{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* height: 40vh; */
+}
+ .card2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    background-color: rgb(21, 33, 66);
+    width: 70% !important;
+    height: 45vh;
+    margin-top: 2rem; 
+    border-radius: 30px;
+    object-fit: contain;
+    
+   } 
+   .imgCardX{
+       width: 100%;
+       height: 80%;
+       border-radius: 30px;
+   }
+
+   
+
+.cardItinerario{
+    background-color: rgb(141, 161, 199) !important;
+     width: 55vw;
+     margin: 50px;
+}
+
+.BtnCitiesX{
+    width: 20%;
+    justify-self: center;
+    align-self: center;
+    border-radius: 30px;
+    border: white solid 2px;
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(82, 114, 202);
+    padding: 15px;
+    margin: 25px;
+    text-align: center;
+}
+.containerTitulo > h3{
+    font-size: 2rem !important;
+}
+.imgCard{
+    object-fit:fill;
+}
+.avatar{
+    width: 75px !important;
+    height: 75px !important; 
+}
+.txtItinerario{
+    font-size: 1.3rem !important;
+    color: white;
+}
+.favoriteBtn{
+    color: aqua;
+}
+.comments{
+    width: 85%;
+    min-height: 20vh;
+    border: solid black 1px;
+}
+@media screen and (max-width: 750px){
+        
+    .txtItinerario{
+        font-size: 0.8rem !important;
+        color: white;
+    }
+    .BtnCities{
+        width: 200px;
+        justify-self: center;
+        align-self: center;
+        border-radius: 30px;
+        border: white solid 2px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(82, 114, 202);
+        padding: 15px;
+        margin: 25px;
+        text-align: center;
+        font-size: 10px;
+    }
+    }

@@ -11,8 +11,8 @@ import LogoCompleto from "./img/logo_completo.png";
 import Footer from './components/footer';
 import ScrollTop from "./components/scrollTop"
 import CardItinerario from "./components/cardItinerario";
-import SignUp from "./components/signUp/signup";
-import SignIn from "./components/signUp/signin";
+import SignUp from "./components/signUp/signUp";
+import SignIn from "./components/signUp/signIn";
 import {connect} from "react-redux";
 import Snackbar from './components/Snackbar';
 

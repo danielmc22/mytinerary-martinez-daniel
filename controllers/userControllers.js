@@ -14,7 +14,7 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
         secure: true,
         auth: {
             user: "verify.email.itinerary@gmail.com",    //DEFINIMOS LOS DATOS DE AUTORIZACION DE NUESTRO PROVEEDOR DE
-            pass: "verify12345678"                          //COREO ELECTRONICO, CONFIGURAR CUAENTAS PARA PERMIR EL USO DE APPS
+            pass: process.env.NODEMAILER                          //COREO ELECTRONICO, CONFIGURAR CUAENTAS PARA PERMIR EL USO DE APPS
         }                                               //CONFIGURACIONES DE GMAIL
     })
 

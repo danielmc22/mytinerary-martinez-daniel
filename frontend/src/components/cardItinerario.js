@@ -53,12 +53,12 @@ const ExpandMore = styled((props) => {
     }, [reload]) */
 
 
-    /* async function likesOrDislikes() {
+    async function likesOrDislikes() {
       console.log(itinerario._id)
-      await props.likeDislike(props.itinerario._id)
+      await likeDislike(itinerario._id)
       
       setReload(!reload)
-    }  */
+    }  
 
 
     const handleExpandClick = () => {
@@ -103,7 +103,7 @@ const ExpandMore = styled((props) => {
           <IconButton aria-label="add to favorites">
 
           
-                 <button >  
+                 <button onClick={likesOrDislikes} >  
                 <span style={{ color: "red", fontSize:30 }} class="material-icons">like</span> 
                 <span style={{  fontSize:30 }}class="material-icons">dislike</span> </button>
 

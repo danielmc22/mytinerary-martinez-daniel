@@ -39,15 +39,14 @@ function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatch
                 <h3 className="">{city.name} </h3>
               </div> 
 
-                {/* <p> {"Country: " + city.country} </p> */}
+                 {/* <p> {"Country: " + city.country} </p>  */}
              </div>
           </div>   
 
-          {/* {itineraries.length > 0 && itineraries.map(itinerario => {
+          {itineraries.length > 0 && itineraries.map(itinerario => {
               return <CardItinerario itinerario={itinerario} /> 
             })
-          } */}
-            
+          }            
       </div>
       
       )}

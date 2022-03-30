@@ -17,8 +17,8 @@ import { Link as LinkRouter } from 'react-router-dom';
 import userActions from '../redux/actionsCreators/userActions';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import {connect} from "react-redux";
-import SignIn from "./signUp/signin";
-import SignUp from "./signUp/signup";
+import SignIn from "./signUp/signIn";
+import SignUp from "./signUp/signUp";
 
 
 const pages = [ <LinkRouter to="inicio" className="link">Home</LinkRouter>,  <LinkRouter to="cities" className="link">Cities</LinkRouter>]; 

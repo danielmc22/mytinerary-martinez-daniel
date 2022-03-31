@@ -10,6 +10,9 @@ const { obtenerItinerios, obtenerUnItinerario,crearItinerario,borrarItinerario, 
 
 const usersControllers = require('../controllers/userControllers');                 //requerimos los controllers
 const {signUpUsers, signInUser, signOutUser, verifyEmail, verificarToken }= usersControllers                      //destructuring de controllers
+// COMMENTS REQUIRE
+const commentsControllers = require('../controllers/commentsControllers')
+const {addComment, modifiComment,deleteComment}= commentsControllers
 
 const passport = require ('../config/passport')
 
@@ -57,6 +60,14 @@ Router.route('/auth/signInToken')
   /*                       RUTA LIKE DISLIKES  */
 Router.route('/itinerarios/likes/:id')
 .put(passport.authenticate('jwt',{ session:false }), likeDislike)
+
+//PLACES ROUTES
+Router.route('/itinerarios/comment')
+.post(passport.authenticate('jwt',{ session: false }),addComment)
+.put(passport.authenticate('jwt',{ session: false }),modifiComment)
+
+Router.route('/itinerarios/comment/:id')
+.post(passport.authenticate('jwt',{ session: false }),deleteComment)
 
 
 module.exports = Router

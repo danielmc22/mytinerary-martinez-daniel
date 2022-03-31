@@ -11,7 +11,7 @@ import ItinerariosActions from "../redux/actionsCreators/itinerariosActions"
 
 
 function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatchToProps
-
+  const [reload, setReload] = useState(false)
   const {id} = useParams()      //el ID llega aqui al componente detalle como parametro a traves de useParams y le llega desde cities desde el boton de enlace de la card
   
   const {city, itineraries } = props    //destructuring de las props
@@ -21,7 +21,7 @@ function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatch
      useEffect(()=>{
       props.fetchearUnaCiudad(id)       //llamo a fetchearUnaCiudad y la saco de las props
       props.itinerariesPerCity(id)
-      },[])
+      },[!reload])
 
 
   return (
@@ -44,7 +44,7 @@ function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatch
           </div>   
 
           {itineraries.length > 0 && itineraries.map(itinerario => {
-              return <CardItinerario itinerario={itinerario} /> 
+              return <CardItinerario itinerario={itinerario} id={itinerario._id} reload={reload} setReload={setReload} likes={itinerario.likes} /> 
             })
           }            
       </div>

@@ -5,8 +5,6 @@ const itinerariosSchema = new mongoose.Schema({
     name: { type: String, required: true },
     userName: { type: String, required: true },
 
-    autor: {type:mongoose.Types.ObjectId, ref:"users"}, //de muestra places
-
     imageUser: { type: String, required: false },
     hours: { type: String, required: true },
     price: { type: String, required: true },

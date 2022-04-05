@@ -44,7 +44,11 @@ function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatch
           </div>   
 
           {itineraries.length > 0 && itineraries.map(itinerario => {
-              return <CardItinerario itinerario={itinerario} id={itinerario._id} reload={reload} setReload={setReload} likes={itinerario.likes} /> 
+              return <CardItinerario itinerario={itinerario} 
+                                     id={itinerario._id} 
+                                     reload={reload} 
+                                     setReload={setReload} 
+                                     likes={itinerario.likes} /> 
             })
           }            
       </div>

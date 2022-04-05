@@ -3,24 +3,24 @@ const Itinerarios = require('../models/itinerarios')
 const commentsControllers = {
 
     addComment: async (req, res) => {
-        const {Itinerario,comment} = req.body.comment
+        const {itinerarie,comment} = req.body.comment
         const user = req.user._id                     //saco el id que llega desde passport
         try {
-            const nuevoComment = await Itinerarios.findOneAndUpdate({_id:Itinerario}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("comments.userID", {fullName:1})
+            const nuevoComment = await Itinerarios.findOneAndUpdate({_id:itinerarie}, {$push: {comments: {comment: comment, userID: user}}}, {new: true}).populate("comments.userID", {fullName:1})
             res.json({ success: true, response:{nuevoComment}, message:"gracias por dejarnos tu comentario" })
-
         }
         catch (error) {
             console.log(error)
             res.json({ success: false, message: "Something went wrong, try again in a moment!" })
         }
-
     },
     modifiComment: async (req, res) => {
-        const {commentID,comment} = req.body.comment
+        /* const {commentID,comment} = req.body.comment */
         const user = req.user._id                       //saco el id que llega desde passport
-        try {
-            const newComment = await Itinerarios.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment": comment}}, {new: true})
+        console.log(req.body.comment)
+
+        /* try {
+            const newComment = await Itinerarios.findOneAndUpdate({"comments._id":commentID}, {$set: {"comments.$.comment":comment}}, {new: true})
             console.log(newComment)
             res.json({ success: true, response:{newComment}, message:"tu comentario a sido modificado" })
 
@@ -28,7 +28,7 @@ const commentsControllers = {
         catch (error) {
             console.log(error)
             res.json({ success: true, message: "Something went wrong, try again in a moment!" })
-        }
+        }  */
 
     },
     deleteComment: async (req, res) => {

@@ -25,13 +25,14 @@ import {connect} from 'react-redux';
 import itinerariosActions from "../redux/actionsCreators/itinerariosActions" 
 import commentsActions from '../redux/actionsCreators/commentsActions';
 import { useParams } from 'react-router-dom';
-
+import ActivityItem from './ActivityItem';
+import activitiesActions from '../redux/actionsCreators/activitiesActions';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
   })(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(180deg)' : 'rotate(10deg)',
+    transform: !expand ? 'rotate(180deg)' : 'rotate(1deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
@@ -40,49 +41,55 @@ const ExpandMore = styled((props) => {
   
 
   const CardItinerario = (props) => {
-    console.log(props)
-    console.log(props.likes)
-
+    
     const [expanded, setExpanded] = React.useState(false);
     const [itinerarie, setItinerarie] = useState()
     const [inputText, setInputText] = useState()
     const [modifi, setModifi] = useState()
+    const [activities, setActivities] = useState()
     
     const { id } = useParams() 
      
-
-     /* useEffect(() => {
+      useEffect(() => {
       props.obtenerUnItinerario(id)
-        .then(response => setItinerarie (response.data.response.itinerario) )
-    }, [reload])  */
+      .then(response =>  setItinerarie (response.data.response.itinerario) )
+    }, [!props.reload])  
 
-    /*  async function cargarComentario(event) {
+    useEffect(() => {
+      props.activityItinerary(props.id)
+      .then((response) => { setActivities (response.response) })
+    }, [!props.reload]) 
+
+       async function cargarComentario(event) {
+       
        const commentData = {
-        itinerario: itinerario._id,
+        itinerarie: props.id,
         comment: inputText,
       } 
+     
       await props.addComment(commentData)
-        .then(response => setItinerarie(response.data.response.nuevoComment), setInputText(""))
-    }  */
-
-    /*  async function modificarComentario(event) {
+      .then(response => setItinerarie(response.data.response.nuevoComment), setInputText(""))
+      props.setReload(!props.reload) 
+      
+    }   
+    
+      async function modificarComentario(event) {
       const commentData = {
         commentID: event.target.id,
         comment: modifi,
       }
       await props.modifiComment(commentData)
-      setReload(!reload)
+      props.setReload(!props.reload)
     } 
 
      async function eliminarComentario(event) {
       await props.deleteComment(event.target.id)
-      setReload(!reload) 
-    }  */
+      props.setReload(!props.reload) 
+    }  
 
     async function likesOrDislikes() {
       await props.likeDislike(props.id)
-
-      
+  
       props.setReload(!props.reload)
     }  
 
@@ -97,6 +104,8 @@ const ExpandMore = styled((props) => {
       })
     }
   
+    console.log(props)
+
     return (
 
       <div className='containerCardItinerarios' >
@@ -122,27 +131,27 @@ const ExpandMore = styled((props) => {
           image={props.itinerario.image}
           alt="Itinerario "
         />
+
         <CardContent >
           <Typography variant="body2" className='txtItinerario' color="white">
           <p> { (props.itinerario.hashtags) } </p>
           <p> {"Price: " + props.itinerario.price} </p>
           <p> {"You will spend aproximatelly : " + props.itinerario.hours + " hours in this itinerary"} </p>
-          
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
 
+        <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
 
               <div>
               {props.userReducer ? (<IconButton aria-label="add to favorites" onClick={likesOrDislikes} >
         {props.likes.includes(props.userReducer.id) ? (
-          <FavoriteIcon />
+          <FavoriteIcon style={{ color:"lightblue", fontSize:36,  }} />
         ) : (
-          <FavoriteBorderIcon />
+          <FavoriteBorderIcon style={{ color:"black", fontSize:36 }}/>
         )}
 
-        <Typography>{props.likes.length}</Typography>
+        <Typography style={{ color:"white", fontSize:36 }}>{props.likes.length}</Typography>
       </IconButton>
       ) : (
         <IconButton aria-label="Like" onClick={noUser}>
@@ -151,15 +160,6 @@ const ExpandMore = styled((props) => {
         </IconButton>
       )}
               </div>
-
-
-                {/* <button onClick={likesOrDislikes} >  
-                <span style={{ color: "red", fontSize:30 }} class="material-icons"> like </span> 
-                <span style={{  fontSize:30 }}class="material-icons"> dislike </span> </button>
-
-          <span style={{  fontSize:30 }} class="material-icons">like no user connected</span>)
-
-          <h3 style={{  color:"black ",fontSize:30 }}>{props.itinerario?.likes.length}</h3> */}
 
           </IconButton>
 
@@ -177,18 +177,21 @@ const ExpandMore = styled((props) => {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
+
+          <ActivityItem  activities={activities} />
+
             <Typography paragraph className='txtItinerario'>{"The main activities in this itinerary: " }</Typography>
             <Typography paragraph className='txtItinerario'>
             {props.itinerario.activities}
             </Typography>
 
 
-             {/* <div class="commentsArea">
+              <div class="commentsArea accordion-body">
 
               
-                {itinerario?.comments.map(comment =>
+                {props.itinerario?.comments.map(comment =>
                   <>
-                    {comment.userID?._id !== props.user?.id ?
+                    {comment.userID !== props.userReducer?.id ?  
                       <div class="card cardComments " key={comment._id}>
                         <div class="card-header">
                           {comment.userID?.fullName}
@@ -203,7 +206,7 @@ const ExpandMore = styled((props) => {
                           {comment.userID.fullName}
                         </div>
                         <div class="card-body ">
-                          <textarea type="text" className="card-text textComments" onChange={(event) => setModifi(event.target.value)} defaultValue={comment.comment} />
+                          <textarea type="text" className="card-text textComments txt-area" onChange={(event) => setModifi(event.target.value)} defaultValue={comment.comment} />
                           <button id={comment._id} onClick={modificarComentario} class="btn btn-primary">Modificar</button>
                           <button id={comment._id} onClick={eliminarComentario} class="btn btn-primary">Eliminar</button>
                         </div>
@@ -211,21 +214,21 @@ const ExpandMore = styled((props) => {
 
                     }
                   </>
-                )} */}
+                )} 
 
-                {/* {props.user ?
+                 {props.userReducer ?
                   <div class="card cardComments">
-                    <div class="card-header">
+                    <div class="card-header txt-dejanos">
                       DEJANOS TU COMENTARIO
                     </div>
                     <div class="card-body ">
                       <textarea onChange={(event) => setInputText(event.target.value)} className="card-text textComments" value={inputText} />
-                      <button onClick={cargarComentario} class="btn btn-primary">Cargar</button>
+                      <button onClick={cargarComentario} class="btn btn-primary">Send</button>
                     </div>
                   </div> :
-                  <h1>Realiza singIn y dejanos tu comentario</h1> */}
-               {/*  }
-              </div>  */}
+                  <h1>Realiza singIn y dejanos tu comentario</h1> 
+                 }
+              </div>  
             
             
           </CardContent>
@@ -247,7 +250,8 @@ const ExpandMore = styled((props) => {
       addComment: commentsActions.addComment,
       modifiComment: commentsActions.modifiComment,
       deleteComment: commentsActions.deleteComment,
-      likeDislike: itinerariosActions.likeDislike
+      likeDislike: itinerariosActions.likeDislike,
+      activityItinerary: activitiesActions.activityItinerary,
     }     
     
     export default connect(mapStateToProps,mapDispatchToProps)(CardItinerario)

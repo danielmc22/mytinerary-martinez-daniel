@@ -13,6 +13,9 @@ const {signUpUsers, signInUser, signOutUser, verifyEmail, verificarToken }= user
 // COMMENTS REQUIRE
 const commentsControllers = require('../controllers/commentsControllers')
 const {addComment, modifiComment,deleteComment}= commentsControllers
+// ACTIVITIES REQUIRE
+const activitiesControllers = require('../controllers/activitiesControllers')
+const {addActivity, activityOfItinerary} = activitiesControllers
 
 const passport = require ('../config/passport')
 
@@ -61,13 +64,22 @@ Router.route('/auth/signInToken')
 Router.route('/itinerarios/likes/:id')
 .put(passport.authenticate('jwt',{ session:false }), likeDislike)
 
-//PLACES ROUTES
+//ITINERARIOS ROUTES COMMENTS
 Router.route('/itinerarios/comment')
-.post(passport.authenticate('jwt',{ session: false }),addComment)
-.put(passport.authenticate('jwt',{ session: false }),modifiComment)
+.post(passport.authenticate('jwt',{ session: false }),addComment)   
+
+Router.route('/itinerarios/comentario') 
+.post(passport.authenticate('jwt',{ session: false }),modifiComment)
 
 Router.route('/itinerarios/comment/:id')
 .post(passport.authenticate('jwt',{ session: false }),deleteComment)
+
+//ACTIVITIES ROUTES
+Router.route('/activities')
+.post(addActivity)
+
+Router.route('/itineraryActivities/:id')
+.get(activityOfItinerary)
 
 
 module.exports = Router

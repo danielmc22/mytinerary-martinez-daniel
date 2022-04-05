@@ -42,7 +42,7 @@ const userActions = {
     VerificarToken: (token) => {                    //llega el token 
 
      return async (dispatch, getState) => {
-         console.log(token)
+         /* console.log(token) */
          const user = await axios.get('http://localhost:4000/api/auth/signInToken', {
              headers: {                               // Se pasa el dato 'Authorization bajo el metodo bearer + token 
                  'Authorization': 'Bearer ' + token

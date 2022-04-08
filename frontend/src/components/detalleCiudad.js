@@ -38,8 +38,6 @@ function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatch
               <div className='containerTitulo' >
                 <h3 className="">{city.name} </h3>
               </div> 
-
-                 {/* <p> {"Country: " + city.country} </p>  */}
              </div>
           </div>   
 

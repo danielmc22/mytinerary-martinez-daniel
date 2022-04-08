@@ -64,9 +64,7 @@
   /* transition-duration: 1s; */
   animation: one 2s infinite;
   animation-direction: alternate;
-
-  z-index: 99;
-  
+  z-index: 99; 
 }
 .nombreImagen{
   display: flex;

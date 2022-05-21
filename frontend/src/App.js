@@ -9,7 +9,7 @@ import Home from "./components/paginas/home"
 import Cities from "./components/paginas/cities"
 import LogoCompleto from "./img/logo_completo.png";
 import Footer from './components/footer';
-import ScrollTop from "./components/scrollTop"
+/* import ScrollTop from "./components/scrollTop" */
 import CardItinerario from "./components/cardItinerario";
 import SignUp from "./components/signUp/signUp";
 import SignIn from "./components/signUp/signIn";
@@ -32,7 +32,7 @@ function App(props) {
 
       <div className="App">
         <NavBar />
-        <ScrollTop />
+{/*         <ScrollTop /> */}
         <Snackbar />
 
         <Routes>

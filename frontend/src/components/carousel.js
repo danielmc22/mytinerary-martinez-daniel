@@ -43,8 +43,6 @@ export default function Carousel() {
         className="mySwiper"
       >
 
-
-
       {cities.map(ciudad =>
 
         <SwiperSlide>  
@@ -53,6 +51,7 @@ export default function Carousel() {
         </SwiperSlide>
         
         )}
+        
       </Swiper>
     </div>
   );

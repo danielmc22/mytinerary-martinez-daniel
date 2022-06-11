@@ -6,9 +6,6 @@ import Cards from "../components/cards"
 
 
 
-
-
-
 const BodyCities = () => {
   return (
 

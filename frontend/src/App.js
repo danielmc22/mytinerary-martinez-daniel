@@ -31,6 +31,7 @@ function App(props) {
     <BrowserRouter>
 
       <div className="App">
+      
         <NavBar />
 {/*         <ScrollTop /> */}
         <Snackbar />

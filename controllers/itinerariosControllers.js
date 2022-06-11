@@ -63,12 +63,9 @@ const ItinerariosController = {
 
 
     likeDislike: async (req, res) => {
-        
+       
         const id = req.params.id            //llega como param. un ID desde "axios" y corresponde al itinerario de donde se va a poner o sacar el like
-        const user = req.user.id          //llega por respuesta de passport al evaluar devuelve la info de user y tomamos el ID
-        console.log("holamundoholaholaholaholaholaholahola")
-        console.log(id)
-        console.log(user)
+        const user = req.body.user          //llega por respuesta de passport al evaluar devuelve la info de user y tomamos el ID
 
         await  Itinerarios.findOne({_id: id})  //buscamos un itinerario que corresponda con el del id recibido como parametro line 67
 

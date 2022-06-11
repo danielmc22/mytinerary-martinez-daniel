@@ -1,14 +1,19 @@
-.cardComments{
-    width:100% !important;
-    min-height: 5vh !important;
-    min-height: fit-content !important;  
-    background-color: white !important;
-    
+.card1{
+    width: 70vw !important;
+    height: 5vh !important;
+    margin: 0rem !important;
+    border-radius: 20px;
+    background-color: rgb(21, 33, 66) !important;
+    margin-bottom: 15px !important;
 }
-.card{
-    width: 80% !important;
-     height: 10vh !important;
-     margin: 0rem !important;
+.cardComments{
+    width: 50vw !important;
+    min-height: 5vh !important;
+    justify-self: center;
+    /* min-height: fit-content !important;   */
+    background-color: rgb(21, 33, 66) !important;
+    height: 30vh !important; 
+    margin-bottom: 25px !important;
 }
 .textComments{
     width: 100% !important;
@@ -17,7 +22,7 @@
 }
 .commentsArea{
     width: 100%;
-    min-height: 5vh !important; 
+    min-height: 7vh !important; 
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -27,8 +32,9 @@
     text-align:center;
 }
 .txt-area{
-    height: 10vh !important;
+    height: 12vh !important;
 }
 .card-body{
     width: 100% !important;
+    height: 15vh !important;
 }

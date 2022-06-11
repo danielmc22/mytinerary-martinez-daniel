@@ -37,7 +37,6 @@ const NavBar = (props) => {
   } 
 
 
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -158,14 +157,15 @@ const NavBar = (props) => {
                 </MenuItem> </> : <>
                 <MenuItem>
                   <Typography textAlign="center">
-                  <LinkRouter  to="/signIn">
+                  <LinkRouter  className="sign" to="/signIn">
                     Sign In
                     </LinkRouter>
                     </Typography>
                 </MenuItem>
                 <MenuItem>
                   <Typography textAlign="center">
-                    <LinkRouter  to="/signUp">
+                              
+                    <LinkRouter  to="/signUp" className="sign">
                     Sign Up
                     </LinkRouter>
                     </Typography>

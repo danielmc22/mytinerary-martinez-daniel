@@ -9,9 +9,6 @@ import { useState } from "react";
 import ImgCallTo from "../../img/Call_to_action.png"
 
 function SignUp(props) {
-const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", "Ecuador", "Mexico", "Paraguay", "Peru", "Venezuela" ]
-
-    console.log(props)
 
     const [selectPaises, setSelectPaises] = useState("unselected");
 
@@ -45,30 +42,20 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
 
     <div className='containerSignUp' > 
         <div className='d-flex flex-column justify-content-center align-items-center' >
+
             <div>
-                  <h2 className="mt-3 text-center"> Select your country </h2>
-            </div>
-            <div>
-                <select
-                    className="form-select form-select-sm"
-                    aria-label=".form-select-sm example"
-                    onChange={select}
-                  >
-                    {paises.map((country) => (
-                      <option key={country}>{country}</option>
-                    ))}
-                  </select>
+
                   </div>
                   {selectPaises !== "Choose" ? (
                 <section>       
         
                 <Snack/>
                 <h1 className='mb-1 mt-3 text-center '> Create a new User </h1>
-                <h2 className='mb-5 mt-2 text-center '> Using Facebook </h2>
+                <h2 className='mb-3 mt-2 text-center '> Using Facebook </h2>
 
                 <FacebookSignUp className='d-flex  justify-self-center align-self-center' country={selectPaises}/> 
 
-                <h2 className='mb-5 mt-2 text-center '>Or with our Form</h2>
+                <h2 className='mb-2 mt-3 text-center '>Or with our Form</h2>
 
                 <form className='d-flex flex-column justify-content-center align-items-center' onSubmit={handleSubmit}>
                     <div className="form-group input-group">
@@ -98,13 +85,6 @@ const paises =["Choose", "Argentina", "Brasil", "Bolivia", "Chile", "Colombia", 
                         </div>
                            <input name="urlImage" className="form-control mb-3" placeholder="url Image" type="text" />
                         </div>
-                    <label>Select Your country</label>
-                    <select className="form-select mb-3" aria-label="Default select example">
-                       
-                        {paises.map(pais =>
-                        <option key={pais} value={pais}>{pais}</option>
-                        )}
-                    </select>
         
                     <div className="form-group d-flex justify-content-center align-items-center">
                         <button type="submit" className="btn btn-primary btn-block mt-1 mb-4"> Create Account  </button>

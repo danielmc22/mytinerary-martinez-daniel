@@ -1,3 +1,9 @@
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .panel-heading {
     padding: 5px 15px;
 }
@@ -19,7 +25,8 @@
 .buttonsocial{
 	background-color: rgb(23, 70, 199);
 	color: white;
-	border-radius: 20px;
+	border-radius: 2px;
 	padding: 11px;
 	margin-bottom: 18px;
+	justify-self: center;
 }

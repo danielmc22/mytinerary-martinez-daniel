@@ -9,7 +9,7 @@ const cities = [
     {
         "name": "Lima",
         "country":"Perú",
-        "image": "https://negociosyconvenciones.com/wp-content/uploads/2019/09/lima-peru-1.jpg",
+        "image": "https://thelemabogados.pe/wp-content/uploads/2020/10/e721c76fa7f41ffa66496110c2c58138.jpg",
         "descripcion": "ciudad de la eterna primavera",
     },
     {

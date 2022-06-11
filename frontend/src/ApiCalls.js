@@ -13,7 +13,7 @@ export const  cargarDatos = async (dataInput) => {   /*  dataInput es el objeto 
     catch (error) {
         throw error
     }
-},
+}
 
 
 export const  eliminarCiudad = async (id) => {          /*  MODIFICAR Y AJUSTAR DATOS  */
@@ -25,7 +25,7 @@ export const  eliminarCiudad = async (id) => {          /*  MODIFICAR Y AJUSTAR 
     catch (error) {
         throw error
     }
-},
+}
 
 
 export const  modificarCiudad = async (id,dataInput) => {

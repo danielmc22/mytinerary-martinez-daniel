@@ -187,12 +187,11 @@ const ExpandMore = styled((props) => {
 
 
               <div class="commentsArea accordion-body">
-
               
                 {props.itinerario?.comments.map(comment =>
                   <>
                     {comment.userID !== props.userReducer?.id ?  
-                      <div class="card cardComments " key={comment._id}>
+                      <div class="card1 cardComments " key={comment._id}>
                         <div class="card-header">
                           {comment.userID?.fullName}
                         </div>
@@ -201,14 +200,14 @@ const ExpandMore = styled((props) => {
                         </div>
                       </div> :
 
-                      <div class="card cardComments">
+                      <div class="card1 cardComments">
                         <div class="card-header">
                           {comment.userID.fullName}
                         </div>
                         <div class="card-body ">
                           <textarea type="text" className="card-text textComments txt-area" onChange={(event) => setModifi(event.target.value)} defaultValue={comment.comment} />
-                          <button id={comment._id} onClick={modificarComentario} class="btn btn-primary">Modificar</button>
-                          <button id={comment._id} onClick={eliminarComentario} class="btn btn-primary">Eliminar</button>
+                          <button id={comment._id} onClick={modificarComentario} class="btn btn-primary ">Modificar</button>
+                          <button id={comment._id} onClick={eliminarComentario} class="btn btn-warning mx-2">Eliminar</button>
                         </div>
                       </div>
 
@@ -217,13 +216,13 @@ const ExpandMore = styled((props) => {
                 )} 
 
                  {props.userReducer ?
-                  <div class="card cardComments">
+                  <div class="card1 cardComments">
                     <div class="card-header txt-dejanos">
                       DEJANOS TU COMENTARIO
                     </div>
                     <div class="card-body ">
                       <textarea onChange={(event) => setInputText(event.target.value)} className="card-text textComments" value={inputText} />
-                      <button onClick={cargarComentario} class="btn btn-primary">Send</button>
+                      <button onClick={cargarComentario} class="btn btn-success">Send</button>
                     </div>
                   </div> :
                   <h1>Realiza singIn y dejanos tu comentario</h1> 

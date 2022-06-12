@@ -9,7 +9,7 @@ itinerariesPerCity: (id) => {
     return async(dispatch, getState)=>{
         try{
             
-            const res = await axios.get('http://localhost:4000/api/itinerarios/'+id)
+            const res = await axios.get('https://mytinerary-daniel-martinez.herokuapp.com/api/itinerarios/'+id)
             console.log(res.data)
             dispatch({type: ITINERARIES_GET, payload:res.data.response})
         } catch(error){
@@ -21,7 +21,7 @@ itinerariesPerCity: (id) => {
 obtenerUnItinerario: (id) => {                                               //llega el id como parametro de la ciudad
     return async(dispatch, getState) => {
         try{
-            const res = await axios.get('http://localhost:4000/api/itinerarios/'+id)  
+            const res = await axios.get('https://mytinerary-daniel-martinez.herokuapp.com/api/itinerarios/'+id)  
           return res 
         } catch (error){
             console.log(error)
@@ -35,7 +35,7 @@ likeDislike: (itinerarioId) => {                    //recibe como parametro el I
     
     return async () => {
         try {
-            let response = await axios.put(`http://localhost:4000/api/itinerarios/likes/${itinerarioId}`, {}, //viene como parametro desde arriba
+            let response = await axios.put(`https://mytinerary-daniel-martinez.herokuapp.com/api/itinerarios/likes/${itinerarioId}`, {}, //viene como parametro desde arriba
            {  headers: {                               // Se pasa el dato 'Authorization bajo el metodo bearer + token 
                 'Authorization': 'Bearer ' + token
             }

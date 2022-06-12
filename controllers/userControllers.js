@@ -26,7 +26,7 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
         subject: "User verification at Mytinerary ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
         html: `
         <div >
-        <h3 style="color:green">Press <a href=http://localhost:4000/api/verify/${uniqueString}>here</a> to confirm and verify your email. Thanks </h3>
+        <h3 style="color:green">Press <a href=https://mytinerary-daniel-martinez.herokuapp.com/api/verify/${uniqueString}>here</a> to confirm and verify your email. Thanks </h3>
         </div>
         `
     
@@ -171,7 +171,6 @@ const usersControllers = {
 
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY,{expiresIn:  60* 60*24 })
                         
-
                         res.json({ success: true,  
                                    from:from,
                                    response: {token,userData }, 

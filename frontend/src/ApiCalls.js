@@ -7,7 +7,7 @@ import axios from "axios"
 export const  cargarDatos = async (dataInput) => {   /*  dataInput es el objeto que envío desde handleSubmit en formmyapi resultante del evento del submit del form que esta en el frontend */
     console.log(dataInput)
     try {
-        let data = await axios.post(`http://localhost:4000/api/allcities`,{dataInput}) /* .post envia el objeto de la info que el usuario ingresó y la mete a la api */
+        let data = await axios.post(`https://mytinerary-daniel-martinez.herokuapp.com/api/allcities`,{dataInput}) /* .post envia el objeto de la info que el usuario ingresó y la mete a la api */
         return data
     }
     catch (error) {
@@ -31,7 +31,7 @@ export const  eliminarCiudad = async (id) => {          /*  MODIFICAR Y AJUSTAR 
 export const  modificarCiudad = async (id,dataInput) => {
     console.log(id, dataInput)
     try {
-        let data = await axios.put(`http://localhost:4000/api/V1/allcities/${id}`, {dataInput})
+        let data = await axios.put(`https://mytinerary-daniel-martinez.herokuapp.com/api/V1/allcities/${id}`, {dataInput})
         return data
     }
     catch (error) {

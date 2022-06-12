@@ -21,9 +21,6 @@ const BodyCities = () => {
         <h2> Choose The Best Places For Your Next Trip </h2>
         <img src={PngTitulo}  alt="imagen-titulo-cards"></img>
       </div>
-
-
-    
     
   </div>
 

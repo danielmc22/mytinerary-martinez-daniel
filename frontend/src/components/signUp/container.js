@@ -50,7 +50,6 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = {
 	SignOutUser: userActions.SignOutUser,
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container) 

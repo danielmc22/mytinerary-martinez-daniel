@@ -62,9 +62,7 @@ return (
 
 </div>
 
-
 	)
-
 }
 
 const mapDispatchToProps = {

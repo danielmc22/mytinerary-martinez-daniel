@@ -7,6 +7,8 @@ const Router = require ("./routes/routes")
 
 const app = express()
 const path = require ('path')
+const PORT = process.env.PORT || 4000
+const HOST = process.env.HOST || "0.0.0.0"  
 
 //Middlewares         = son servicios que utiliza nestra api para establecer diferentes comportamientos
 app.use(cors())

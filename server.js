@@ -1,14 +1,15 @@
 require("dotenv").config()
 const cors = require("cors")
-const passport = require("passport") 
 const express = require("express")
+const passport = require("passport") 
 require("./config/database")
-const Router = require ("./routes/routes") 
 
+
+const Router = require ("./routes/routes") 
 const app = express()
-const path = require ('path')
 const PORT = process.env.PORT || 4000
 const HOST = process.env.HOST || "0.0.0.0"  
+const path = require ('path')
 
 //Middlewares         = son servicios que utiliza nestra api para establecer diferentes comportamientos
 app.use(cors())
@@ -19,10 +20,10 @@ app.use('/api', Router)
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
     app.get('*', (req, res) =>{
-        res.sendFile(path.join(_dirname+'/client/build/index.html'))
+        res.sendFile(path.join(__dirname+'/client/build/index.html'))
     })
 }
 
 
-app.listen(PORT, HOST,()=>console.log("server ready on PORT" +PORT ))
+app.listen(PORT, HOST,()=>console.log("server ready on PORT" + PORT ))
 

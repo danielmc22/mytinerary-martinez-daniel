@@ -26,4 +26,5 @@ if (process.env.NODE_ENV === 'production') {
 
 
 app.listen(PORT, HOST,()=>console.log("server ready on PORT" + PORT ))
+app.listen(process.env.PORT || 4000, process.env.HOST || '0.0.0.0' , () => console.log(`server listening ${process.env.PORT || 4000}}`))
 

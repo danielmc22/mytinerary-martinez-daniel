@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e7b71da5.css",
+    "main.js": "/static/js/main.afa8f43b.js",
+    "static/media/fondoHeader.jpg": "/static/media/fondoHeader.0172720496f71ca28c37.jpg",
+    "static/media/coverVideo.mp4": "/static/media/coverVideo.8d057c828db6652db842.mp4",
+    "static/media/ImgCoverHeader.jpg": "/static/media/ImgCoverHeader.a2831427eda0d0a3065e.jpg",
+    "static/media/Call_to_action.png": "/static/media/Call_to_action.3f232ff9caac3ac077f8.png",
+    "static/media/Travel-PNG.png": "/static/media/Travel-PNG.52c1782ae8706152e6e9.png",
+    "static/media/not_found.png": "/static/media/not_found.d2e6cc16b8320009dc3c.png",
+    "static/media/imagenHeader.png": "/static/media/imagenHeader.b1c63108aa2980254ed7.png",
+    "static/media/logo_completo.png": "/static/media/logo_completo.44adbba9a26c7fd296f2.png",
+    "static/media/solo_logo.png": "/static/media/solo_logo.74742c7b273c6ca374fd.png",
+    "index.html": "/index.html",
+    "main.e7b71da5.css.map": "/static/css/main.e7b71da5.css.map",
+    "main.afa8f43b.js.map": "/static/js/main.afa8f43b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e7b71da5.css",
+    "static/js/main.afa8f43b.js"
+  ]
+}

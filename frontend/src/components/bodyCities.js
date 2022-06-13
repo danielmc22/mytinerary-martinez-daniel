@@ -5,7 +5,6 @@ import PngTitulo from "../img/Travel-PNG.png"
 import Cards from "../components/cards"
 
 
-
 const BodyCities = () => {
   return (
 
@@ -15,7 +14,6 @@ const BodyCities = () => {
         <img src={ImgCoverHeader} className="cover"/>
         <h2> Discover Your Next Destinations </h2>
       </div>
-
 
       <div className='div-2'> 
         <h2> Choose The Best Places For Your Next Trip </h2>

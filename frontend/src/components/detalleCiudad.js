@@ -31,7 +31,6 @@ function DetalleCiudad (props) {   //estas props llegan por medio de mapDispatch
       {city._id && (  
         <div className='contenedorCardX'>
 
-            
              <div className='card2'>
               <img className='imgCardX' src={city.image}  alt="imagen-titulo-cards"></img>
             <div className='ContainerTxtCard' >

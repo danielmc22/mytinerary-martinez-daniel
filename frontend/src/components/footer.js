@@ -3,7 +3,6 @@ import "../styles/footer.css"
 import ImagenHeder from "../img/imagenHeader.png"
 import FondoFooter from "../img/fondoHeader.jpg"
 import { Link as LinkRouter } from 'react-router-dom';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons"
 
@@ -39,8 +38,6 @@ const Footer = () => {
       </div>
       <h2>DESIGN BY: DANIEL MARTÍNEZ ® 2022</h2>
     </div>
-
-
 
   )
 }

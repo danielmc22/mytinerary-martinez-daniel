@@ -6,7 +6,7 @@ const userActions = {
                                             // y ahora sale para las routes... (routes de signUp) - luego va al controller
         return async (dispatch, getState) => {
 
-            const res = await axios.post('https://mytinerary-daniel-martinez.herokuapp.com/api/auth/signUp', { userData })
+            const res = await axios.post('https://mytinerary-martinez-daniel.herokuapp.com/api/auth/signUp', { userData })
             console.log(res)
             dispatch({type: 'message', 
                        payload: {view: true,
@@ -19,7 +19,7 @@ const userActions = {
 
         return async (dispatch, getState) => {
             
-            const user = await axios.post('https://mytinerary-daniel-martinez.herokuapp.com/api/auth/signIn', { logedUser })
+            const user = await axios.post('https://mytinerary-martinez-daniel.herokuapp.com/api/auth/signIn', { logedUser })
             if(user.data.success){
                  localStorage.setItem('token',user.data.response.token) 
             dispatch({type: 'user', payload: user.data.response.userData});
@@ -33,7 +33,7 @@ const userActions = {
     },
     SignOutUser :(closeuser)=>{
         return async (dispatch, getState) => {
-        const user = axios.post('https://mytinerary-daniel-martinez.herokuapp.com/api/auth/signOut',{closeuser})
+        const user = axios.post('https://mytinerary-martinez-daniel.herokuapp.com/api/auth/signOut',{closeuser})
          localStorage.removeItem('token') 
         dispatch({type: 'user', payload: null});
     } 
@@ -43,7 +43,7 @@ const userActions = {
 
      return async (dispatch, getState) => {
          /* console.log(token) */
-         const user = await axios.get('https://mytinerary-daniel-martinez.herokuapp.com/api/auth/signInToken', {
+         const user = await axios.get('https://mytinerary-martinez-daniel.herokuapp.com/api/auth/signInToken', {
              headers: {                               // Se pasa el dato 'Authorization bajo el metodo bearer + token 
                  'Authorization': 'Bearer ' + token
              }

@@ -23,8 +23,6 @@ function Cards (props) {
     setBusqueda(search.target.value);
     props.filtro(props.cities, search.target.value);
 
-   /*  console.log(search.target.value) */
-
   };
 
     return (

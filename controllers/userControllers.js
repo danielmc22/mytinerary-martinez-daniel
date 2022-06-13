@@ -26,7 +26,7 @@ const sendEmail = async (email, uniqueString) => { //FUNCION ENCARGADA DE ENVIAR
         subject: "User verification at Mytinerary ", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
         html: `
         <div >
-        <h3 style="color:green">Press <a href=https://mytinerary-daniel-martinez.herokuapp.com/api/verify/${uniqueString}>here</a> to confirm and verify your email. Thanks </h3>
+        <h3 style="color:green">Press <a href=https://mytinerary-martinez-daniel.herokuapp.com/api/verify/${uniqueString}>here</a> to confirm and verify your email. Thanks </h3>
         </div>
         `
     

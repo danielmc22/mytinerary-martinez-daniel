@@ -1,7 +1,7 @@
 
 const cities = [
     {
-        "name": "Medellin",
+        "name": "Medellín",
         "country":"Colombia",
         "image": "https://cdn.forbes.co/2020/09/Medell%C3%ADn-foto-ProColombia-1536x1024.jpg",
         "descripcion": "ciudad de la eterna primavera",

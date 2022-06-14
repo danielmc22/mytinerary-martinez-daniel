@@ -31,7 +31,7 @@ export const  eliminarCiudad = async (id) => {          /*  MODIFICAR Y AJUSTAR 
 export const  modificarCiudad = async (id,dataInput) => {
     console.log(id, dataInput)
     try {
-        let data = await axios.put(`https://mytinerary-martinez-daniel.herokuapp.com/api/V1/allcities/${id}`, {dataInput})
+        let data = await axios.put(`https://mytinerary-daniel-martinez.herokuapp.com/api/V1/allcities/${id}`, {dataInput})
         return data
     }
     catch (error) {

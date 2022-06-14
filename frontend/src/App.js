@@ -7,7 +7,6 @@ import NavBar from "./components/navBar";
 import Detalle from "./components/detalleCiudad";
 import Home from "./components/paginas/home"
 import Cities from "./components/paginas/cities"
-import LogoCompleto from "./img/logo_completo.png";
 import Footer from './components/footer';
 /* import ScrollTop from "./components/scrollTop" */
 import CardItinerario from "./components/cardItinerario";

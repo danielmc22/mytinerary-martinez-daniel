@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e7b71da5.css",
-    "main.js": "/static/js/main.afa8f43b.js",
+    "main.js": "/static/js/main.27d0b8b7.js",
     "static/media/fondoHeader.jpg": "/static/media/fondoHeader.0172720496f71ca28c37.jpg",
     "static/media/coverVideo.mp4": "/static/media/coverVideo.8d057c828db6652db842.mp4",
     "static/media/ImgCoverHeader.jpg": "/static/media/ImgCoverHeader.a2831427eda0d0a3065e.jpg",
@@ -13,10 +13,10 @@
     "static/media/solo_logo.png": "/static/media/solo_logo.74742c7b273c6ca374fd.png",
     "index.html": "/index.html",
     "main.e7b71da5.css.map": "/static/css/main.e7b71da5.css.map",
-    "main.afa8f43b.js.map": "/static/js/main.afa8f43b.js.map"
+    "main.27d0b8b7.js.map": "/static/js/main.27d0b8b7.js.map"
   },
   "entrypoints": [
     "static/css/main.e7b71da5.css",
-    "static/js/main.afa8f43b.js"
+    "static/js/main.27d0b8b7.js"
   ]
 }

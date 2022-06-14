@@ -3,13 +3,13 @@ const cors = require("cors")
 const express = require("express")
 const passport = require("passport") 
 require("./config/database")
-
+const path = require ("path")
 
 const Router = require ("./routes/routes") 
 const app = express()
 const PORT = process.env.PORT || 4000
 const HOST = process.env.HOST || "0.0.0.0"  
-const path = require ('path')
+
 
 //Middlewares         = son servicios que utiliza nestra api para establecer diferentes comportamientos
 app.use(cors())
@@ -25,6 +25,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
-/* app.listen(PORT, HOST,()=>console.log("server ready on PORT" + PORT )) */
-app.listen(process.env.PORT || 4000, process.env.HOST || '0.0.0.0' , () => console.log(`server listening ${process.env.PORT || 4000}}`))
+app.listen(PORT, HOST,() => console.log("server ready on PORT" + PORT )) 
 

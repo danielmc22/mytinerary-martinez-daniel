@@ -6,7 +6,7 @@ const commentsActions = {
      
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post('https://mytinerary-martinez-daniel.herokuapp.com/api/itinerarios/comment', { comment }, {
+            const res = await axios.post('https://mytinerary-daniel-martinez.herokuapp.com/api/itinerarios/comment', { comment }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -26,7 +26,7 @@ const commentsActions = {
         console.log(comment)
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post('https://mytinerary-martinez-daniel.herokuapp.com/api/itinerarios/comentario', { comment }, {
+            const res = await axios.post('https://mytinerary-daniel-martinez.herokuapp.com/api/itinerarios/comentario', { comment }, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -47,7 +47,7 @@ const commentsActions = {
     deleteComment: (id) => {
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post(`https://mytinerary-martinez-daniel.herokuapp.com/api/itinerarios/comment/${id}`, {}, {
+            const res = await axios.post(`https://mytinerary-daniel-martinez.herokuapp.com/api/itinerarios/comment/${id}`, {}, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

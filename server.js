@@ -17,13 +17,11 @@ app.use(express.json())   /* devuelve las respuestas en formato json   */
 app.use(passport.initialize())
 app.use('/api', Router)
 
-if (process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
-    app.get('*', (req, res) =>{
-        res.sendFile(path.join(__dirname+'/client/build/index.html'))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname+"/client/build/index.html"))
     })
 }
-
-
-app.listen(PORT, HOST,() => console.log("server ready on PORT" + PORT )) 
+app.listen(PORT, HOST, () => console.log("Server Ready on PORT" + PORT));
 
